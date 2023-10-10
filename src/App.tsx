@@ -1,12 +1,12 @@
 import { Box, Button, ButtonGroup, Flex, Heading, Link, useColorModeValue } from "@chakra-ui/react"
 import { LinkIcon } from '@chakra-ui/icons'
 import ColorModeButton from "./helper/colorModeButton"
-import HexBrowser from "./hexboard/browser";
+import Tesselation from "./colorCalc";
 // import UniformShowcase from "./starfleet/UniformShowcase"
 
 export default function App() {
 
-  const showLabels = false;
+  const showLabels = true;
   // ---------------------------------------------
   // <> Render Prep
   // ---------------------------------------------
@@ -34,7 +34,8 @@ export default function App() {
         {/* <UniformShowcase /> */}
         {/* <Writing /> */}
         {/* <PixelDraw /> */}
-        {<HexBrowser />}
+        {/* {<HexBrowser />} */}
+        <Tesselation />
       </Box>
       <Box id="footer" textAlign={'right'} borderTop={`2px solid ${fgColor}`} marginTop={'xl'}>ChakraUI Sandbox
         <ButtonGroup flex={1}>
