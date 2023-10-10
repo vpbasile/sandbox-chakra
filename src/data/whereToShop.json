@@ -1,0 +1,135 @@
+{
+    "serverUpSince": "11:20:00",
+    "baseURL": "http://localhost:8000/",
+    "tableName": "purchase",
+    "rowsReturned": 8,
+    "dbFields": [
+        [
+            "product_name",
+            {
+                "labelText": "Item",
+                "type": "list",
+                "order": 1,
+                "matchID": "product-list",
+                "listTable": "product",
+                "choices": [
+                    {
+                        "product_id": 1,
+                        "product_name": "Frozen Pizza (Big)",
+                        "unit_name": "Pizza"
+                    },
+                    {
+                        "product_id": 2,
+                        "product_name": "Party Pizza",
+                        "unit_name": "Pizza"
+                    },
+                    {
+                        "product_id": 3,
+                        "product_name": "Grapes",
+                        "unit_name": "Pound"
+                    },
+                    {
+                        "product_id": 4,
+                        "product_name": "Seltzer",
+                        "unit_name": "Can"
+                    },
+                    {
+                        "product_id": 5,
+                        "product_name": "Tortilla Chips",
+                        "unit_name": "Bag"
+                    },
+                    {
+                        "product_id": 6,
+                        "product_name": "Greek Yogurt (Whole)",
+                        "unit_name": "oz"
+                    },
+                    {
+                        "product_id": 7,
+                        "product_name": "Chicken thighs B/S",
+                        "unit_name": "Pound"
+                    },
+                    {
+                        "product_id": 8,
+                        "product_name": "Seltzer",
+                        "unit_name": "Can"
+                    }
+                ]
+            }
+        ],
+        [
+            "best_venue",
+            {
+                "labelText": "Best Venue",
+                "type": "list",
+                "order": 2,
+                "matchID": "best_venue",
+                "listTable": "venue",
+                "choices": [
+                    {
+                        "venue_id": 1,
+                        "venue_name": "Aldi"
+                    },
+                    {
+                        "venue_id": 2,
+                        "venue_name": "Giant Eagle"
+                    },
+                    {
+                        "venue_id": 3,
+                        "venue_name": "Costco"
+                    }
+                ]
+            }
+        ],
+        [
+            "best_price_per_unit",
+            {
+                "labelText": "Price per unit",
+                "type": "number",
+                "order": 3,
+                "matchID": "best_price_per_unit"
+            }
+        ]
+    ],
+    "dbRows": [
+        {
+            "product_name": "Chicken thighs B/S",
+            "best_venue": "Aldi",
+            "best_price_per_unit": 1.0116666666666667
+        },
+        {
+            "product_name": "Frozen Pizza (Big)",
+            "best_venue": "Aldi",
+            "best_price_per_unit": 5.39
+        },
+        {
+            "product_name": "Grapes",
+            "best_venue": "Aldi",
+            "best_price_per_unit": 0.9918032786885246
+        },
+        {
+            "product_name": "Greek Yogurt (Whole)",
+            "best_venue": "Aldi",
+            "best_price_per_unit": 0.1090625
+        },
+        {
+            "product_name": "Party Pizza",
+            "best_venue": "Giant Eagle",
+            "best_price_per_unit": 1.67
+        },
+        {
+            "product_name": "Seltzer",
+            "best_venue": "Aldi",
+            "best_price_per_unit": 0.28750000000000003
+        },
+        {
+            "product_name": "Seltzer",
+            "best_venue": "Giant Eagle",
+            "best_price_per_unit": 0.41625
+        },
+        {
+            "product_name": "Tortilla Chips",
+            "best_venue": "Aldi",
+            "best_price_per_unit": 1.85
+        }
+    ]
+}

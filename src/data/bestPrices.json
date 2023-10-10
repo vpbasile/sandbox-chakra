@@ -1,0 +1,42 @@
+{"dbRows": [
+    {
+        "product_name": "Chicken thighs B/S",
+        "best_venue": "Aldi",
+        "best_price_per_unit": 1.0116666666666667
+    },
+    {
+        "product_name": "Frozen Pizza (Big)",
+        "best_venue": "Aldi",
+        "best_price_per_unit": 5.39
+    },
+    {
+        "product_name": "Grapes",
+        "best_venue": "Aldi",
+        "best_price_per_unit": 0.9918032786885246
+    },
+    {
+        "product_name": "Greek Yogurt (Whole)",
+        "best_venue": "Aldi",
+        "best_price_per_unit": 0.1090625
+    },
+    {
+        "product_name": "Party Pizza",
+        "best_venue": "Giant Eagle",
+        "best_price_per_unit": 1.67
+    },
+    {
+        "product_name": "Seltzer",
+        "best_venue": "Aldi",
+        "best_price_per_unit": 0.28750000000000003
+    },
+    {
+        "product_name": "Seltzer",
+        "best_venue": "Giant Eagle",
+        "best_price_per_unit": 0.41625
+    },
+    {
+        "product_name": "Tortilla Chips",
+        "best_venue": "Aldi",
+        "best_price_per_unit": 1.85
+    }
+]}

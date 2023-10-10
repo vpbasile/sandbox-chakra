@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="pip-half.svg"
+   width="188.97636cm"
+   height="188.97636cm"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   viewBox="0 0 188.97636 188.97636"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#151515"
+     showgrid="true"
+     inkscape:zoom="0.056958912"
+     inkscape:cx="3563.9726"
+     inkscape:cy="3563.9726"
+     inkscape:window-width="1920"
+     inkscape:window-height="1129"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2"
+     inkscape:document-units="cm">
+    <inkscape:grid
+       type="xygrid"
+       id="grid184"
+       originx="5291.3387"
+       originy="5291.3387"
+       units="cm"
+       spacingx="188.97638"
+       spacingy="188.97638"
+       empspacing="2" />
+  </sodipodi:namedview>
+  <circle
+     style="fill:#c8ab37;fill-opacity:1;stroke-width:1;paint-order:markers fill stroke;stop-color:#000000"
+     id="path231"
+     cx="94.488182"
+     cy="94.488182"
+     r="94.488182" />
+  <circle
+     style="fill:#000000;fill-opacity:1;stroke-width:0.75911;paint-order:markers fill stroke;stop-color:#000000"
+     id="circle1626"
+     cx="94.488182"
+     cy="94.488182"
+     r="71.726967" />
+</svg>
