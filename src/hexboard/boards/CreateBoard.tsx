@@ -8,6 +8,7 @@ import { clickMessage } from "../hexFunctions";
 import BoardControl from "../forms/BoardControl";
 import CanvasControl from "../forms/CanvasControl";
 import SaveRosterButton from "../forms/saveRoster";
+import { Box, Input } from "@chakra-ui/react";
 
 export default function CreateBoard() {
 	// <> States that control canvas parameters
@@ -53,11 +54,11 @@ export default function CreateBoard() {
 		<h3>Add Hex</h3>
 		<Box id="setQBox">
 			<label className="" htmlFor="qField">q:</label>
-			<input className="form-control" name="qField" defaultValue={qTemp} onChange={(e) => SETqTemp(+e.target.value)} />
+			<Input className="form-control" name="qField" defaultValue={qTemp} onChange={(e) => SETqTemp(+e.target.value)} />
 		</Box>
 		<Box className="setRBox">
 			<label className="" htmlFor="rField">r:</label>
-			<input className="form-control" name="rField" defaultValue={rTemp} onChange={(e) => SETrTemp(+e.target.value)} />
+			<Input className="form-control" name="rField" defaultValue={rTemp} onChange={(e) => SETrTemp(+e.target.value)} />
 		</Box>
 		<Box id="chooseClass">
 			{/* <ArraySelect

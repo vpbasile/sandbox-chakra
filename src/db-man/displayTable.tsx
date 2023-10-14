@@ -109,7 +109,7 @@ export default function DisplayTable(props: { data: mysteryObject[], fieldDefs: 
             case undefined: return <Td key={keyID} id={keyID}>UND</Td>
             // case 'boolean': return cellCheck(contentsCell as boolean, matchID, labeltext)
             case "number": return <Td key={keyID} id={keyID} >
-                <input type="number" key={keyID} id={keyID} name={labeltext} defaultValue={contentsCell as number} disabled={disabled} onChange={onchange as setter} />
+                <Input type="number" key={keyID} id={keyID} name={labeltext} defaultValue={contentsCell as number} disabled={disabled} onChange={onchange as setter} />
                 <label key={keyID + '-label'} htmlFor={labeltext}>{labeltext}</label>
             </Td>;
             // case 'list': {
@@ -119,7 +119,7 @@ export default function DisplayTable(props: { data: mysteryObject[], fieldDefs: 
             // }
             case 'list-multi': return <Td key={keyID} id={keyID}>{contentsCell} </Td>;
             case 'string': return <Td key={keyID} id={keyID} >
-                <input key={keyID} name={labeltext} id={keyID} defaultValue={contentsCell as string} disabled={disabled} />
+                <Input key={keyID} name={labeltext} id={keyID} defaultValue={contentsCell as string} disabled={disabled} />
                 <label key={keyID + '-label'} className="hidden" htmlFor={labeltext}>{labeltext}</label>
             </Td>;
             case 'uid': return <Td key={keyID} id={keyID} className="uid">{contentsCell}</Td>;

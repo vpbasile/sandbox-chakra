@@ -6,6 +6,7 @@ import { hexOrientations } from '../../hexMath';
 import CanvasControl from '../../forms/CanvasControl';
 import BoardControl from '../../forms/BoardControl';
 import { clickMessage } from '../../hexFunctions';
+import { Box } from '@chakra-ui/react';
 
 export default function SavedBoard() {
 	// <> States that control canvas parameters
@@ -14,12 +15,12 @@ export default function SavedBoard() {
 	const [hexRadius, SEThexRadius] = useState(200);
 	const [separationMultiplier, SETseparationMultiplier] = useState(1.1)
 	const [hexGridOrigin, SEThexGridOrigin] = useState({ x: canvasWidth / 2, y: canvasHeight / 2 });
-	const [orientation, SETorientation] = useState(hexOrientations["flat-top"])
-	function toggleOrientation(): void {
-		if (orientation===hexOrientations["flat-top"]){SETorientation(hexOrientations["pointy-top"])} else {
-			SETorientation(hexOrientations["flat-top"])
-		}
-	}
+	const [orientation] = useState(hexOrientations["flat-top"])
+	// function toggleOrientation(): void {
+	// 	if (orientation===hexOrientations["flat-top"]){SETorientation(hexOrientations["pointy-top"])} else {
+	// 		SETorientation(hexOrientations["flat-top"])
+	// 	}
+	// }
 
 	const hexRoster = fileData.hexRoster;
 	// const canvasGlobals = fileData.canvasGlobals;

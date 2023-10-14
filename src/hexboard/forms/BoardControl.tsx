@@ -1,9 +1,10 @@
+import { Dispatch, SetStateAction } from "react";
 import ValueField from "./ValueField";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Input } from "@chakra-ui/react";
 
 type propsType = {
 	hexRadius: number, separationMultiplier: number
-	SEThexRadius: any, SETseparationMultiplier: any,
+	SEThexRadius: Dispatch<SetStateAction<number>>, SETseparationMultiplier: Dispatch<number>,
 	// SEThexGridOrigin: any
 
 }
@@ -28,7 +29,7 @@ export default function BoardControl(props: propsType) {
 			</Box>
 			<Box className="" id="pickSeparationBox">
 				<label htmlFor='pickSeparation'>Separation multiplier: {separationMultiplier}</label>
-				<input type='range' min='1' max='2' step='0.1' className='form-range'
+				<Input type='range' min='1' max='2' step='0.1' className='form-range'
 					defaultValue={separationMultiplier} onChange={(e) => {
 						// console.log(`separationMultiplier: ${separationMultiplier}`)
 						SETseparationMultiplier(+e.target.value)

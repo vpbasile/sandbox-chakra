@@ -6,6 +6,7 @@ import aspectRatio from '../rectMath';
 import { clickMessage } from '../hexFunctions';
 import BoardControl from '../forms/BoardControl';
 import CanvasControl from '../forms/CanvasControl';
+import { Box } from '@chakra-ui/react';
 
 
 export default function Keyboard() {

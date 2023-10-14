@@ -9,6 +9,7 @@ import { calcCenteredRectangle, hexOrientations } from "../hexMath";
 import aspectRatio from "../rectMath";
 import BoardControl from "../forms/BoardControl";
 import SaveRosterButton from "../forms/saveRoster";
+import { Box, Input } from "@chakra-ui/react";
 
 export default function GenerativeBoard() {
 	// <> States that control canvas parameters
@@ -63,7 +64,7 @@ export default function GenerativeBoard() {
 		<Box id="reRender">
 			<h3>Generation Parameters</h3>
 			<label htmlFor="pickSpace">Number of cells: </label>
-			<input type="number" defaultValue={tempNumber} onChange={(e) => { SETtempNumber(+e.target.value); SETnumberOfSpaces(tempNumber); SEThexRoster(newRoster()); }} />
+			<Input type="number" defaultValue={tempNumber} onChange={(e) => { SETtempNumber(+e.target.value); SETnumberOfSpaces(tempNumber); SEThexRoster(newRoster()); }} />
 			{/* <button className={`btn bg-blue`} onClick={() => {
 				SETnumberOfSpaces(tempNumber);
 				SEThexRoster(newRoster());

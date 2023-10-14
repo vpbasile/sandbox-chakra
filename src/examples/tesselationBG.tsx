@@ -7,8 +7,8 @@ import dc from "/img/dc-retro.jpg"
 import gl from "/img/gl.jpg"
 
 import { useState } from "react";
-import ExampleCutShadow from "../examples/cutShadow";
-import ColorModeButton from "../helper/colorModeButton";
+import ExampleCutShadow from "./cutShadow";
+import ColorModeButton from "../helpers/colorModeButton";
 
 export default function Tesselation() {
 
