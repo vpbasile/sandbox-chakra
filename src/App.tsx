@@ -1,49 +1,36 @@
-import { Box, Button, ButtonGroup, Flex, Heading, Link, useColorModeValue } from "@chakra-ui/react"
-import { LinkIcon } from '@chakra-ui/icons'
-import ColorModeButton from "./helper/colorModeButton"
-import Tesselation from "./colorCalc";
+import Home from "./components/Home";
+import JSCheatSheet from "./components/JSCheatSheet";
+import Layout from "./layout";
+import { myRouteDef } from "./layout/typeRoute";
+import { Routes, Route } from "react-router-dom";
+import UniformShowcase from "./starfleet/UniformShowcase";
 // import UniformShowcase from "./starfleet/UniformShowcase"
 
 export default function App() {
 
-  const showLabels = true;
   // ---------------------------------------------
   // <> Render Prep
   // ---------------------------------------------
   // const threedeeShadow = "-0.1em 0.1em .2em red, 0.1em -0.1em .2em blue"
 
-  // Useful things for reacting to color mode
-  // const bgColor = useColorModeValue('white', 'black')
-  const fgColor = useColorModeValue('black', 'white')
+  let keyGen = 1
+  const routesList: myRouteDef[] = [
+    // <> Put the index route first
+    { key: keyGen++, path: "cheat-sheet", buttonText: "Cheat Sheet for TS", element: <JSCheatSheet /> },
+    { key: keyGen++, path: "UniformShowcase", buttonText: "Starfleet", element: <UniformShowcase /> }
+  ]
+
 
   // ---------------------------------------------
   // <> Main Render
   // ---------------------------------------------
 
   return (
-    <Box id="wrapper" m={10}>
-      <Box id="appContainer" p={'3xl'}>
-        {showLabels && <Flex id="header" borderBottom={`2px solid ${fgColor}`} marginBottom={'xl'}>
-          <Heading flex={3} as={'h1'}>ChakraUI Sandbox</Heading>
-          <ColorModeButton />
-        </Flex>}
-        {/* <TE /> */}
-        {/* <Browser /> */}
-        {/* <Box id="uniformInteractive" p={3}>
-        </Box> */}
-        {/* <UniformShowcase /> */}
-        {/* <Writing /> */}
-        {/* <PixelDraw /> */}
-        {/* {<HexBrowser />} */}
-        <Tesselation />
-      </Box>
-      <Box id="footer" textAlign={'right'} borderTop={`2px solid ${fgColor}`} marginTop={'xl'}>ChakraUI Sandbox
-        <ButtonGroup flex={1}>
-          <Button leftIcon={<LinkIcon />}><Link isExternal href="https://chakra-ui.com/">ChakraUI</Link></Button>
-          <Button leftIcon={<LinkIcon />}><Link href="https://chakra-ui-cheatsheet.vercel.app/">Cheat Sheet</Link></Button>
-          <Button leftIcon={<LinkIcon />}><Link href="https://play.chakra-ui.com/playground">Playground</Link></Button>
-        </ButtonGroup>
-      </Box>
-    </Box>
+    <Routes>
+      <Route path='/sandbox-chakra' element={<Layout routesList={routesList} />}>
+        <Route index element={<Home />} />
+        {routesList.map(route => <Route path={route.path} element={route.element} />)}
+      </Route>
+    </Routes>
   )
 }

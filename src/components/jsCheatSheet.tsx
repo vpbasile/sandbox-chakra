@@ -1,6 +1,7 @@
+import { Box } from "@chakra-ui/react"
 
 
-export default function CheatSheet() {
+export default function JSCheatSheet() {
 
     // ---------------------------------------------
     // <> Maps

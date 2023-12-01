@@ -1,0 +1,1 @@
+export type myRouteDef = { key: number, path: string, buttonText: string, element: JSX.Element }
