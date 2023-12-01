@@ -1,4 +1,4 @@
-export default function ArraySelect(props: { choicesArray: string[], onChange: (arg0:any) => void, cssClasses?: string }) {
+export default function ArraySelect(props: { choicesArray: string[], onChange: (arg0:unknown) => void, cssClasses?: string }) {
 	const choicesArray = props.choicesArray;
 	const onChange = props.onChange
 	const options = choicesArray.map(

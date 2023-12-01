@@ -7,9 +7,9 @@ const colorModeConfig: ThemeConfig = {
 }
 
 // extend the theme
-const sandboxTheme = extendTheme({ // Specifics
+const starfleetTheme = extendTheme({ // Specifics
     fonts: {
-        heading: `'SandBoxHeadingFont', monospace`,
+        heading: `'Okuda', monospace`,
         body: `'SandBoxBodyFont', monospace`,
     }
     , colors: {
@@ -27,4 +27,4 @@ const sandboxTheme = extendTheme({ // Specifics
     , colorModeConfig
 )
 
-export default sandboxTheme
+export default starfleetTheme

@@ -1,0 +1,3 @@
+export default function MyLorem() {
+    return (`Lorem ipsum odor amet, consectetuer adipiscing elit. Dis parturient sagittis tristique sagittis adipiscing himenaeos mi. Amet sollicitudin aptent rutrum fusce quam convallis ligula pellentesque litora. Sit at auctor aliquet ligula mi magnis per condimentum. Euismod ullamcorper eros conubia; fusce morbi urna? Fringilla placerat platea suscipit congue per. Est nullam nullam primis mauris varius. Magna elementum mattis nisi odio est luctus mattis. Suscipit elit dictumst ligula enim magnis scelerisque cras etiam.`)
+}

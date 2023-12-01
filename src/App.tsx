@@ -5,6 +5,18 @@ import { myRouteDef } from "./layout/typeRoute";
 import { Routes, Route } from "react-router-dom";
 import UniformShowcase from "./starfleet/UniformShowcase";
 // import UniformShowcase from "./starfleet/UniformShowcase"
+import Header from "./sandboxHeader";
+import HomeComponent from "./sandboxHome";
+
+export type routeType = {
+  path: string;
+  element: JSX.Element;
+  displayName: string;
+  font?: string;
+  uid: number;
+  tags?: string;
+}
+
 
 export default function App() {
 
@@ -12,6 +24,8 @@ export default function App() {
   // <> Render Prep
   // ---------------------------------------------
   // const threedeeShadow = "-0.1em 0.1em .2em red, 0.1em -0.1em .2em blue"
+
+  // <> FIXME: You can provide a way better UX than this when your app throws errors by providing your own ErrorBoundary or errorElement prop on your route.
 
   let keyGen = 1
   const routesList: myRouteDef[] = [

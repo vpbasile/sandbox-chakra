@@ -1,11 +1,11 @@
-import React from 'react';
-import { tableData } from '../../db-man/DBTable';
+import React, { Dispatch, SetStateAction } from 'react';
 import { FormLabel, Input } from '@chakra-ui/react';
 export default function ValueField(props: {
 	fieldName: string,
 	labelText: string,
 	type: string,
-	defaultValue: 'string | number | readonly string[] | undefined', onChangeFunction: any
+	defaultValue: string | number | readonly string[] | undefined,
+	onChangeFunction: Dispatch<SetStateAction<number>>
 }) {
 	const fieldName = props.fieldName;
 	const labelText = props.labelText;

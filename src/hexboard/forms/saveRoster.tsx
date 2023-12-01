@@ -1,3 +1,4 @@
+import { Box, Button } from "@chakra-ui/react";
 import { gameGlobals, hexagon } from "../hexDefinitions";
 
 export default function SaveRosterButton(props: {
@@ -32,7 +33,7 @@ export default function SaveRosterButton(props: {
 
 	// }
 
-	return (<Box className={styles.hexBoardForm}>
-		<button className={styles.button} onClick={() => saveRoster(hexRoster)} >Save Roster</button>
+	return (<Box>
+		<Button onClick={() => saveRoster(hexRoster)} >Save Roster</Button>
 	</Box>)
 }

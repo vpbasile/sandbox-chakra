@@ -27,4 +27,4 @@ export type canvasGlobals = {
 	canvasBackgroundColor: string,
 };
 
-export type hexClickFunction = (hex:hexagon,id: number, hexText?: string)=>{}
+export type hexClickFunction = (hex: hexagon, id: number, hexText?: string) => unknown

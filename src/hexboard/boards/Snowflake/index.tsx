@@ -4,9 +4,10 @@ import { hexOrientations } from '../../hexMath';
 import { randomBounded } from '../../math';
 import { BranchObject, hexplicate } from './snowFlake';
 import { centerHexagon, reflectAcrossAxis } from '../../hexFunctions';
-import { gameGlobals, hexagon } from '../../hexDefinitions';
+import { gameGlobals, hexClickFunction, hexagon } from '../../hexDefinitions';
 
 import Hexboard from '../../HexBoardSVG';
+import { Box } from '@chakra-ui/react';
 // import BoardControl from '../../forms/BoardControl';
 // import CanvasControl from '../../forms/CanvasControl';
 
@@ -50,7 +51,7 @@ export default function Snowflake() {
 		separationMultiplier: 1.02,
 		textSize: 0,
 		drawBackBoard: false,
-		onClick: function (): {} {
+		onClick: function (): hexClickFunction {
 			throw new Error('Function not implemented.');
 		},
 	};

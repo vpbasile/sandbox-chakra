@@ -5,7 +5,7 @@ const Fonts = () => (
     styles={`
       /* okuda */
       @font-face {
-        font-family: 'SandBoxHeadingFont',monospace;
+        font-family: 'Okuda',monospace;
         font-style: normal;
         font-weight: 700;
         font-display: swap;
@@ -14,7 +14,7 @@ const Fonts = () => (
       }
       /* okuda */
       @font-face {
-        font-family: 'SandBoxBodyFont', monospace;
+        font-family: monospace;
         font-style: normal;
         font-weight: 400;
         font-display: swap;
