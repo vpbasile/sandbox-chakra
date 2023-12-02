@@ -30,9 +30,9 @@ export default function App() {
   let keyGen = 1
   const routesList: myRouteDef[] = [
     // <> Put the index route first
-    { key: keyGen++, path: "UniformShowcase", navText: "Starfleet", element: <UniformShowcase /> },
-    { key: keyGen++, path: "cheat-sheet", navText: "Cheat Sheet for TS", element: <JSCheatSheet /> },
-    { key: keyGen++, element: <ExampleCutShadow bgImage={blueBG} bgSize={100} />, path:"cut-shadow", navText: "Cut Shadow Example"}
+    { key: keyGen++, element: <UniformShowcase />, path: "UniformShowcase", navText: "Starfleet" },
+    { key: keyGen++, element: <JSCheatSheet />, path: "cheat-sheet", navText: "Cheat Sheet for TS" },
+    { key: keyGen++, element: <ExampleCutShadow bgImage={blueBG} bgSize={100} />, path: "cut-shadow", navText: "Cut Shadow Example" }
   ]
 
 
