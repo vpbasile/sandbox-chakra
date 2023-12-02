@@ -1,12 +1,12 @@
-import Home from "./components/Home";
-import JSCheatSheet from "./components/JSCheatSheet";
 import Layout from "./layout";
 import { myRouteDef } from "./layout/typeRoute";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import UniformShowcase from "./starfleet/UniformShowcase";
+import Home from "./Home";
+import JSCheatSheet from "./jsCheatSheet";
+import ExampleCutShadow from "./examples/cutShadow";
+import blueBG from '../public/img/sunTile/sunTileBlue.svg'
 // import UniformShowcase from "./starfleet/UniformShowcase"
-import Header from "./sandboxHeader";
-import HomeComponent from "./sandboxHome";
 
 export type routeType = {
   path: string;
@@ -30,8 +30,9 @@ export default function App() {
   let keyGen = 1
   const routesList: myRouteDef[] = [
     // <> Put the index route first
-    { key: keyGen++, path: "cheat-sheet", buttonText: "Cheat Sheet for TS", element: <JSCheatSheet /> },
-    { key: keyGen++, path: "UniformShowcase", buttonText: "Starfleet", element: <UniformShowcase /> }
+    { key: keyGen++, path: "UniformShowcase", navText: "Starfleet", element: <UniformShowcase /> },
+    { key: keyGen++, path: "cheat-sheet", navText: "Cheat Sheet for TS", element: <JSCheatSheet /> },
+    { key: keyGen++, element: <ExampleCutShadow bgImage={blueBG} bgSize={100} />, path:"cut-shadow", navText: "Cut Shadow Example"}
   ]
 
 
@@ -40,11 +41,13 @@ export default function App() {
   // ---------------------------------------------
 
   return (
-    <Routes>
-      <Route path='/sandbox-chakra' element={<Layout routesList={routesList} />}>
-        <Route index element={<Home />} />
-        {routesList.map(route => <Route path={route.path} element={route.element} />)}
-      </Route>
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/sandbox-chakra' element={<Layout routesList={routesList} />}>
+          <Route index element={<Home />} />
+          {routesList.map(route => <Route key={route.key} path={route.path} element={route.element} />)}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }

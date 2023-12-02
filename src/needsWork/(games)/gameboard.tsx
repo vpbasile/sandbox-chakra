@@ -1,7 +1,7 @@
 import Player from "./player";
 import deckMaster from "./deck-standard.json"
 import { useState } from "react";
-import DBTable, { fieldTuple } from "../db-man/DBTable";
+import DBTable, { fieldTuple } from "../../db-man/DBTable";
 import { Box } from "@chakra-ui/react";
 // import sun from "./sun.svg"
 // import water from "./water.svg"

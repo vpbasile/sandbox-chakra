@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 import { Outlet } from 'react-router-dom'
 import SandboxFooter from './sandboxFooter'
 import SandboxHeader from './sandboxHeader'
@@ -15,12 +15,12 @@ export default function Layout(props: { routesList: myRouteDef[] }) {
     const [showLabels, SETshowLabels] = useState(true);
     const hideLables = () => { SETshowLabels(false) }
 
-    return (<>
+    return (<Container id='layoutWrapper'>
         {showLabels && <SandboxHeader routesList={routesList} hideLabels={hideLables} />}
         <Box id='mainBody' p={9}>
             {/* This is where the children will be rendered */}
             <Outlet />
         </Box>
         {showLabels && <SandboxFooter />}
-    </>)
+    </Container>)
 }

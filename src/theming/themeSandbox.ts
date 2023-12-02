@@ -1,7 +1,4 @@
 import { ThemeConfig, extendTheme, withDefaultColorScheme, withDefaultVariant } from '@chakra-ui/react'
-import darkbg from '/img/adrien-olichon-VzRKG0piEp8-unsplash.jpg'
-import lightbg from '/img/raychel-sanner-YP2MNNId-Qs-unsplash.jpg'
-
 
 // Define your color mode config
 const colorModeConfig: ThemeConfig = {
@@ -52,8 +49,7 @@ const sandboxTheme = extendTheme({ // Specifics
         },
         radii: {
             card: "lg"
-        },
-        body: { bgImage: { default: lightbg, _dark: darkbg } }
+        }
     },
 },
     withDefaultColorScheme({ colorScheme: 'gray', components: ['Button'], })
