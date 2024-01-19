@@ -1,6 +1,6 @@
-import { Box, Text, Center, useColorModeValue, Stack } from "@chakra-ui/react";
-import darkPhoto from '../ignores/sandDark60.png'
-import lightPhoto from '../ignores/sandLight60.png'
+import { Box, Center, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import darkPhoto from '../ignores/sandDark60.png';
+import lightPhoto from '../ignores/sandLight60.png';
 
 export default function HomeComponent() {
     const text = `
@@ -24,9 +24,9 @@ export default function HomeComponent() {
     const photo = useColorModeValue(lightPhoto, darkPhoto)
 
     return (<Center minH={'xl'}>
-        <Stack bgImage={photo} bgSize={'cover'} maxH={'80vh'} w={'full'} justifyContent={'center'} alignContent={'center'}>
+        <Stack bgImage={photo} bgSize={'cover'} minH={'80vh'} w={'full'} justifyContent={'center'} alignContent={'center'}>
             <Center width={'full'} filter={'none'} h={'full'}>
-            <Text>{text}</Text>
+                <Text>{text}</Text>
             </Center>
             <Center>{photoCredit}</Center>
         </Stack>

@@ -1,6 +1,6 @@
 import { ThemeConfig, extendTheme, withDefaultColorScheme, withDefaultVariant } from '@chakra-ui/react'
-import darkbg from '/img/adrien-olichon-VzRKG0piEp8-unsplash.jpg'
-import lightbg from '/img/raychel-sanner-YP2MNNId-Qs-unsplash.jpg'
+import darkbg from '../../ignores/adrien-olichon-VzRKG0piEp8-unsplash.jpg'
+import lightbg from '../../ignores/raychel-sanner-YP2MNNId-Qs-unsplash.jpg'
 
 
 // Define your color mode config
@@ -12,8 +12,8 @@ const colorModeConfig: ThemeConfig = {
 // extend the theme
 const sandboxTheme = extendTheme({ // Specifics
     fonts: {
-        heading: `'Okuda', monospace`,
-        body: `'SandBoxBodyFont', monospace`,
+        heading: 'Monofonto Regular',
+        body: 'Droid sans Mono',
     },
     colors: {
         starfleet: {

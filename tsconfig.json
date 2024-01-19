@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "ignores/themeNebula.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

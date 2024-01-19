@@ -1,14 +1,14 @@
-import { Box, Heading, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Flex, Text, SliderMark, RadioGroup, Radio, Stack, Center } from "@chakra-ui/react";
-import sunBlue from "/img/sunTile/sunTileBlue.svg"
-import sunGreen from "/img/sunTile/sunTileGreen.svg"
-import sunHarlequin from "/img/sunTile/sunTileHarlequin.svg"
-import sunFlower from "/img/sunTile/sunTileFlower.svg"
-import dc from "/img/dc-retro.jpg"
-import gl from "/img/gl.jpg"
+import { Box, Center, Flex, Heading, Radio, RadioGroup, Slider, SliderFilledTrack, SliderMark, SliderThumb, SliderTrack, Stack, Text } from "@chakra-ui/react";
+import dc from "../../ignores/dc-retro.jpg";
+import gl from "../../ignores/gl.jpg";
+import sunBlue from "/img/sunTile/sunTileBlue.svg";
+import sunFlower from "/img/sunTile/sunTileFlower.svg";
+import sunGreen from "/img/sunTile/sunTileGreen.svg";
+import sunHarlequin from "/img/sunTile/sunTileHarlequin.svg";
 
 import { useState } from "react";
+import ColorModeButton from "../components/helpers/colorModeButton";
 import ExampleCutShadow from "./cutShadow";
-import ColorModeButton from "../helpers/colorModeButton";
 
 export default function Tesselation() {
 

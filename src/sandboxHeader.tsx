@@ -1,22 +1,12 @@
-import { Flex, Heading, VStack, Link, Button, Menu, MenuItem, MenuButton, MenuList } from "@chakra-ui/react";
-import ColorModeButton from "./helpers/colorModeButton";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { routeType } from "./App";
+import { Button, Flex, Heading, Link, Menu, MenuButton, MenuItem, MenuList, VStack } from "@chakra-ui/react";
+import ColorModeButton from "./components/helpers/colorModeButton";
+import { routeType } from "./components/typeRoute";
 // import { useState } from "react";
 
 export default function Header(props: { foregroundColor: string, routes: routeType[] }) {
     const routes = props.routes;
     const foregroundColor = props.foregroundColor;
-
-    // Stuff for toggling the menu
-    // const [isOpen, setIsOpen] = useState(false)
-    // const toggle = () => setIsOpen(!isOpen)
-
-    // function MenuToggle({ toggle, isOpen }: { toggle: () => void, isOpen: boolean }) {
-    //     return (<Box display={{ base: "block", md: "none" }} onClick={toggle}>
-    //         {isOpen ? <CloseIcon /> : <MenuIcon />}
-    //     </Box>);
-    // }
 
     let keyGen = 0;
 
@@ -34,11 +24,6 @@ export default function Header(props: { foregroundColor: string, routes: routeTy
                         return <MenuItem key={keyGen++}><Link href={path}>{eachRoute.displayName}</Link></MenuItem>;
                     })}
                     <MenuItem>My Account</MenuItem>
-                    {/* <MenuDivider />
-    <MenuGroup title='Help'>
-        <MenuItem>Docs</MenuItem>
-        <MenuItem>FAQ</MenuItem>
-    </MenuGroup> */}
                 </MenuList>
             </Menu>}
         </VStack>

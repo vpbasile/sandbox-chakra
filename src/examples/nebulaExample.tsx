@@ -1,6 +1,6 @@
-import { Text, Box, Link, Heading, ChakraProvider } from "@chakra-ui/react";
-import MyLorem from "../helpers/myLorem";
-import nebulaTheme from "../theming/themeNebula";
+import { Box, ChakraProvider, Heading, Link, Text } from "@chakra-ui/react";
+import nebulaTheme from "../../ignores/themeNebula";
+import MyLorem from "../components/helpers/myLorem";
 
 export default function NebulaExample() {
   return (
