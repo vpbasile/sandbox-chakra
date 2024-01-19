@@ -1,13 +1,11 @@
-import { Box, Container } from '@chakra-ui/react'
-import { Outlet } from 'react-router-dom'
-import SandboxFooter from './sandboxFooter'
-import SandboxHeader from './sandboxHeader'
-import { myRouteDef } from './typeRoute';
+import { Box, Container } from '@chakra-ui/react';
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import { routeType } from '../AppTypes';
+import SandboxFooter from './sandboxFooter';
+import SandboxHeader from './sandboxHeader';
 
-
-
-export default function Layout(props: { routesList: myRouteDef[] }) {
+export default function Layout(props: { routesList: routeType[] }) {
     const routesList = props.routesList;
     // ---------------------------------------------
     // <><> Set this to false to hide the header and footer

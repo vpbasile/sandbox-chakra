@@ -7,7 +7,7 @@ import sunGreen from "/img/sunTile/sunTileGreen.svg";
 import sunHarlequin from "/img/sunTile/sunTileHarlequin.svg";
 
 import { useState } from "react";
-import ColorModeButton from "../components/helpers/colorModeButton";
+import ColorModeButton from "../helpers/colorModeButton";
 import ExampleCutShadow from "./cutShadow";
 
 export default function Tesselation() {
