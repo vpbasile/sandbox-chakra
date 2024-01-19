@@ -1,11 +1,11 @@
-import React, { Dispatch, SetStateAction } from 'react';
 import { FormLabel, Input } from '@chakra-ui/react';
+import React, { Dispatch } from 'react';
 export default function ValueField(props: {
 	fieldName: string,
 	labelText: string,
 	type: string,
 	defaultValue: string | number | readonly string[] | undefined,
-	onChangeFunction: Dispatch<SetStateAction<number>>
+	onChangeFunction: Dispatch<number>
 }) {
 	const fieldName = props.fieldName;
 	const labelText = props.labelText;

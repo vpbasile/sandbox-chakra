@@ -1,7 +1,7 @@
 import { Button, ButtonGroup, Center, Heading, Stack, Text } from "@chakra-ui/react";
+import ColorModeButton from "../components/helpers/colorModeButton";
 import Nav from "./Nav";
 import { myRouteDef } from "./typeRoute";
-import ColorModeButton from '../helpers/colorModeButton';
 
 // import { useState } from "react";
 

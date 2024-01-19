@@ -1,6 +1,6 @@
 import { ThemeConfig, extendTheme, withDefaultColorScheme, withDefaultVariant } from '@chakra-ui/react'
-import darkbg from '../../ignores/adrien-olichon-VzRKG0piEp8-unsplash.jpg'
-import lightbg from '../../ignores/raychel-sanner-YP2MNNId-Qs-unsplash.jpg'
+// import darkbg from '../../ignores/adrien-olichon-VzRKG0piEp8-unsplash.jpg'
+// import lightbg from '../../ignores/raychel-sanner-YP2MNNId-Qs-unsplash.jpg'
 
 
 // Define your color mode config

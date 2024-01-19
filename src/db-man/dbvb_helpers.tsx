@@ -21,56 +21,56 @@ export function empty(): (arg0: unknown) => void {
     return () => { };
 }
 
-function translateAnything() {
+// function translateAnything() {
 
-    const list = [
-        { "col_1": "val_11", "col_3": "val_13" },
-        { "col_2": "val_22", "col_3": "val_23" },
-        { "col_1": "val_31", "col_3": "val_33" }
-    ];
+//     const list = [
+//         { "col_1": "val_11", "col_3": "val_13" },
+//         { "col_2": "val_22", "col_3": "val_23" },
+//         { "col_1": "val_31", "col_3": "val_33" }
+//     ];
 
-    function constructTable(selector: unknown) {
+//     function constructTable(selector: unknown) {
 
-        // Getting the all column names
-        const cols = Headers(list, selector);
+//         // Getting the all column names
+//         const cols = Headers(list, selector);
 
-        // Traversing the JSON data
-        for (let i = 0; i < list.length; i++) {
-            let row = <tr />
-            for (let colIndex = 0; colIndex < cols.length; colIndex++) {
-                let val = list[i][cols[colIndex]];
+//         // Traversing the JSON data
+//         for (let i = 0; i < list.length; i++) {
+//             let row = <tr />
+//             for (let colIndex = 0; colIndex < cols.length; colIndex++) {
+//                 let val = list[i][cols[colIndex]];
 
-                // If there is any key, which is matching
-                // with the column name
-                if (val == null) val = "";
-                row += <td>{val}</td>
-            }
+//                 // If there is any key, which is matching
+//                 // with the column name
+//                 if (val == null) val = "";
+//                 row += <td>{val}</td>
+//             }
 
-            // Adding each row to the table
-            $(selector).append(row);
-        }
-    }
+//             // Adding each row to the table
+//             $(selector).append(row);
+//         }
+//     }
 
-    function Headers(list, selector) {
-        let columns = [];
-        let header = <tr />
+//     function Headers(list, selector) {
+//         let columns = [];
+//         let header = <tr />
 
-        for (let i = 0; i < list.length; i++) {
-            let row = list[i];
+//         for (let i = 0; i < list.length; i++) {
+//             let row = list[i];
 
-            for (let k in row) {
-                if ($.inArray(k, columns) == -1) {
-                    columns.push(k);
+//             for (let k in row) {
+//                 if ($.inArray(k, columns) == -1) {
+//                     columns.push(k);
 
-                    // Creating the header
-                    header += <th>k</th>
-                }
-            }
-        }
+//                     // Creating the header
+//                     header += <th>k</th>
+//                 }
+//             }
+//         }
 
-        // Appending the header to the table
-        $(selector).append(header);
-        return columns;
-    }
+//         // Appending the header to the table
+//         $(selector).append(header);
+//         return columns;
+//     }
 
-}
+// }

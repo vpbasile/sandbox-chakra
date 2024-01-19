@@ -1,6 +1,6 @@
-import { Box, Button, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
-import { fieldTuple, optionTranslator, setter, tableData } from "./DBTable";
+import { Box, Button, Input, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import { useState } from "react";
+import { fieldTuple, optionTranslator, setter, tableData } from "./DBTable";
 
 
 // type prospType = {
@@ -21,6 +21,7 @@ export default function DisplayTable(props: { data: mysteryObject[], fieldDefs: 
 
     // <> States and other global variables
     const [isEditing, selectForEdit] = useState<number | null>(null)
+    console.log("isEditing", isEditing)
     let rowcount = 0;
 
     // Build the total list of fields that are present
@@ -69,9 +70,10 @@ export default function DisplayTable(props: { data: mysteryObject[], fieldDefs: 
     </Box>)
 
     function tableRowDisplay(rowKey: string, filteredList: dataValue[], rowValues: mysteryObject) {
+        console.log("rowValues", rowValues, "filteredList", filteredList)
         return <Tr key={rowKey} id={rowKey}>
             {/* Each cell */}
-            {fieldDefs.map((fieldTuple,index) => {
+            {fieldDefs.map((fieldTuple) => {
                 const fieldProfile = fieldTuple[1]
                 const matchID = fieldProfile.matchID;
                 const cellKey = `row${rowKey}-${matchID}`;
@@ -83,6 +85,7 @@ export default function DisplayTable(props: { data: mysteryObject[], fieldDefs: 
     }
 
     function createRow(rowNum: number, fields: fieldTuple[]) {
+        console.log("ROWNUM", rowNum, "fields", fields)
         const rowKey = "createRow";
         let indexCell = 0;
         return (<Tr key={rowKey} id={rowKey}>
@@ -99,10 +102,12 @@ export default function DisplayTable(props: { data: mysteryObject[], fieldDefs: 
 
     // <> Input
     function cellInput(contentsCell: tableData, field: fieldTuple, onChange: setter, translator?: optionTranslator, disabled?: boolean) {
+        console.log("cellInput", contentsCell, field, onChange, translator, disabled)
         const [matchID, fieldDef] = field
         const typeCell = fieldDef.type
         const labeltext = fieldDef.labelText
         const keyID = `input-` + matchID;
+        console.log(onchange, translator)
         // console.log("matchID", matchID, "type", typeCell, "contentsCell", contentsCell)
         // if(disabled===undefined){}
         switch (typeCell) {

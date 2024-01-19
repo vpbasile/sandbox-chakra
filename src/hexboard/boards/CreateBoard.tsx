@@ -1,14 +1,14 @@
 
-import Hexboard from "../HexBoardSVG";
+import { Box, Input } from "@chakra-ui/react";
 import { useState } from "react";
-import { gameGlobals, hexagon } from "../hexDefinitions";
-import { calcCenteredRectangle, cube_ring, hexOrientations } from "../hexMath";
-import aspectRatio from "../rectMath";
-import { clickMessage } from "../hexFunctions";
+import Hexboard from "../HexBoardSVG";
 import BoardControl from "../forms/BoardControl";
 import CanvasControl from "../forms/CanvasControl";
 import SaveRosterButton from "../forms/saveRoster";
-import { Box, Input } from "@chakra-ui/react";
+import { gameGlobals, hexagon } from "../hexDefinitions";
+import { clickMessage } from "../hexFunctions";
+import { calcCenteredRectangle, cube_ring, hexOrientations } from "../hexMath";
+import aspectRatio from "../rectMath";
 
 export default function CreateBoard() {
 	// <> States that control canvas parameters
@@ -16,6 +16,8 @@ export default function CreateBoard() {
 	const [separationMultiplier, SETseparationMultiplier] = useState(1.1)
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [defaultOrientation, SETdefaultOrientation] = useState(hexOrientations["flat-top"])
+
+	console.log(SETdefaultOrientation)
 
 	// States unique to this board
 	const [qTemp, SETqTemp] = useState(0);

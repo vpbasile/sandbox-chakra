@@ -16,7 +16,7 @@ export default function ListSelect(props: propsType) {
     // console.log('Rendering select list for ' + matchID)
     const fieldDef = tuple[1]
     const options: mysteryObject[] = fieldDef.choices as mysteryObject[]
-    const translator = props.translator
+    // const translator = props.translator
     const translatedOptions = options;
     // if (translator) translatedOptions = translator(matchID, options)
     // else translatedOptions = options

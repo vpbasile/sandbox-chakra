@@ -1,16 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
-import { useState } from "react";
-import ListSelect, { optionForDropdown } from "./db-tableselect";
+import { Input } from "@chakra-ui/input";
 import {
 	Table,
-	Thead,
+	TableContainer,
 	Tbody,
-	Tr,
-	Th,
 	Td,
-	TableContainer
+	Th,
+	Thead,
+	Tr
 } from "@chakra-ui/table";
+import { useState } from "react";
+import ListSelect, { optionForDropdown } from "./db-tableselect";
 
 // <> Types used wihen working with tables
 // ---------------------------------------------
