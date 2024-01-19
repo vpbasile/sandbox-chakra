@@ -52,8 +52,7 @@ const sandboxTheme = extendTheme({ // Specifics
         },
         radii: {
             card: "lg"
-        },
-        body: { bgImage: { default: lightbg, _dark: darkbg } }
+        }
     },
 },
     withDefaultColorScheme({ colorScheme: 'gray', components: ['Button'], })

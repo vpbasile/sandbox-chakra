@@ -1,7 +1,7 @@
-import { Box } from "@chakra-ui/react"
+import { Box, Heading, Text } from "@chakra-ui/react"
 
 
-export default function CheatSheet() {
+export default function JSCheatSheet() {
 
     // ---------------------------------------------
     // <> Maps
@@ -60,17 +60,16 @@ export default function CheatSheet() {
             <h2>JavaScript Cheat Sheet</h2>
             {/* <h3 className={styles.h3}>Records</h3>
             <p></p> */}
-            <h3>Maps</h3>
-            <p>
+            <Heading as={'h3'}>Maps</Heading>
+            <Text>
                 <a href={"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map"} >Maps</a>
                 {" are useful for dynamic keys, as in a map of users.  They bind keys to values.    Maps are optimized to have the shape change over time.  Objects aren't for arbitrariy key-value mappings.  Objectsa are good for arbitrary shapes with arbitrary nesting.  Ideally an object's shape should be defined when it's instantiated and not modified during runtime - that hurts performance significantly. If you want to destroy and create keys, you want a map."}
-                <pre><code>{codexample1}</code></pre>
-            </p>
-            <h3>Sets</h3>
-            <p>
-
+            </Text>
+            <Text colorScheme="blue">{codexample1}</Text>
+            <Heading as={'h3'}>Sets</Heading>
+            <Text>
                 {"Sets will deduplicate values and have handy methods like .has() and .delete().  It has .entries which returns an iterable of [v,v] pairs for every value `v` in the set."}
-            </p>
+            </Text>
         </Box>
     )
 }

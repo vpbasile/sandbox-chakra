@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Gameboard from './(games)/gameboard';
+
 import Layout from './components/layout';
 import { routeType } from './components/typeRoute';
 import MenuExample from './examples/menuExample';
@@ -12,6 +12,7 @@ import Keyboard from './hexboard/boards/Keyboard';
 import SavedBoard from './hexboard/boards/SavedBoard';
 import TriviaBoard from './hexboard/boards/TriviaBoard';
 import CheatSheet from './jsCheatSheet';
+import Gameboard from './needsWork/(games)/gameboard';
 import HomeComponent from './sandboxHome';
 import UniformShowcase from './starfleet/UniformShowcase';
 
