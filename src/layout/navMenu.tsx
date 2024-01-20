@@ -3,9 +3,9 @@ import { Button, Menu, MenuButton, MenuGroup, MenuItem, MenuList } from '@chakra
 import { Link } from 'react-router-dom';
 import { routeGroupList, routeType } from '../AppTypes';
 
-let keyGen = 0;
 
 export default function NavMenu(props: { routesList: routeType[] }) {
+    let keyGen = 0;
     const routesList = props.routesList;
     return ((<Menu>
         <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>Choose a module</MenuButton>
