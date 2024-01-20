@@ -9,9 +9,9 @@ export default function HexboardLayout(props: { id: string, displayTitle: string
                     {props.forms.map((form, i) => {return <Box key={i}>{form}</Box>})}
                 </Box>
             </Box>
-            <Box>
+            <Box w={'full'}>
                 <Heading>HexBoard: {props.displayTitle}</Heading>
-                {props.board}
+                <Box color={'blue.500'} border={'2px'}>{props.board}</Box>
             </Box>
         </Flex>
         <Accordion id={props.id} allowMultiple>

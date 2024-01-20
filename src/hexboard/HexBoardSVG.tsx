@@ -61,6 +61,13 @@ export default function Hexboard(props: hexboardProps) {
 
 	// <> Do some last minute things to the roster, like assigning unique ids if they are missing
 	let hexKey = 0;
+	const rectBounds = { x: { min: 0, max: 0 }, y: { min: 0, max: 0 } }
+	const expandBounds = (point:{x:number, y:number}) => {
+		if (point.x < rectBounds.x.min) { rectBounds.x.min = point.x }
+		if (point.x > rectBounds.x.max) { rectBounds.x.max = point.x }
+		if (point.y < rectBounds.y.min) { rectBounds.y.min = point.y }
+		if (point.y > rectBounds.y.max) { rectBounds.y.max = point.y }
+	}
 	const hexes = hexRoster.map((hex: hexagon) => {
 		const thisHexKey = hexKey++;
 		return <Hexagon
@@ -72,11 +79,13 @@ export default function Hexboard(props: hexboardProps) {
 			cssClasses={hex.cssClasses}
 			hexText={hex.hexText}
 			clickMessage={clickMessage(hex, thisHexKey, hex.hexText)}
+			expandBounds={expandBounds}
 		/>
 	})
+
+	console.log(`Rect bounds: ${JSON.stringify(rectBounds)}`)
 	// Do the math for the bounding hex and box
 	const backboardPoints = backBoard(hexRoster, gameGlobals);
-	const rectInfo = boundRect(range);
 
 	return (<>
 		{/* <> Parent SVG */}
@@ -86,34 +95,13 @@ export default function Hexboard(props: hexboardProps) {
 			}
 			style={{ rotate: "0deg", fill: "white", opacity: "0.8" }}
 			xmlns="<http://www.w3.org/2000/svg>" >
-			{
-				gameGlobals.drawBackBoard && <polygon
-					style={{}}
-					className={`just-grid`}
-					id={`backboard`}
-					points={backboardPoints}
-				/>
-			}
-			{/* <> The hexagons */}
+			{gameGlobals.drawBackBoard && <polygon
+				style={{}}
+				className={`just-grid`}
+				id={`backboard`}
+				points={backboardPoints}
+			/>}
 			{hexes}
-			{/* <> The bounding box */}
-			<rect width={rectInfo.width} height={rectInfo.height} x={rectInfo.x} y={rectInfo.y} style={{ fill: "none", stroke: "#F4C9C9", strokeWidth: "10px", opacity: "1.0" }} />
 		</svg >
 	</>)
-
-	function boundRect(range: { xMin: number; xMax: number; yMin: number; yMax: number; }): { width: number, height: number, x: number, y: number } {
-		const newRange = {
-			xMin: Math.floor(range.xMin), xMax: Math.floor(range.xMax),
-			yMin: Math.floor(range.yMin), yMax: Math.floor(range.yMax)
-		};
-		// console.log(newRange);
-		const rectWidth = Math.abs(newRange.xMax - newRange.xMin);
-		const rectHeight = Math.abs(newRange.yMax - newRange.yMin);
-		return ({
-			width: rectWidth,
-			height: rectHeight,
-			x: -(rectWidth / 2),
-			y: -(rectHeight / 2),
-		})
-	}
 }

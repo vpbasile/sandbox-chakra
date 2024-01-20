@@ -71,15 +71,17 @@ export default function Keyboard() {
 	}
 
 	return <HexboardLayout id="keyboard" displayTitle="Keyboard"
-	forms={[
-		<BoardParameters
-			hexRadius={hexRadius} SEThexRadius={SEThexRadius}
-			separationMultiplier={separationMultiplier} SETseparationMultiplier={SETseparationMultiplier} />,
-		<CanvasParameters
-			canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
-			canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
-			hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin} />
-	]}
+		forms={[
+			<CanvasParameters
+				canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
+				canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
+				hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin} />,
+			<BoardParameters
+				hexRadius={hexRadius} SEThexRadius={SEThexRadius}
+				separationMultiplier={separationMultiplier} SETseparationMultiplier={SETseparationMultiplier}
+				hexgridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
+			/>
+		]}
 		board={<Hexboard
 			hexRoster={keyboardHexes}
 			gameGlobals={gameGlobals}

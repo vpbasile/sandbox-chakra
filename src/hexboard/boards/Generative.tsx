@@ -4,7 +4,7 @@ import Hexboard from "../HexBoardSVG";
 import { gameGlobals, hexagon, vector } from "../hexDefinitions";
 import { alreadyThere, clickMessage, randomMove } from "../hexFunctions";
 
-import { Container, Input } from "@chakra-ui/react";
+import { Container, InputGroup, InputLeftAddon, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper } from "@chakra-ui/react";
 import HexboardLayout from "../HexboardLayout";
 import BoardParameters from "../forms/BoardParameters";
 import CanvasParameters from "../forms/CanvasParameters";
@@ -21,7 +21,6 @@ export default function GenerativeBoard() {
 	const [defaultOrientation] = useState(hexOrientations["flat-top"])
 
 	const [numberOfSpaces, SETnumberOfSpaces] = useState(50);
-	const [tempNumber, SETtempNumber] = useState(numberOfSpaces)
 	const [hexRoster, SEThexRoster] = useState(newRoster())
 
 	// Randomize color assignment so that 1/3 hexes are green
@@ -65,14 +64,17 @@ export default function GenerativeBoard() {
 
 	const editForm =
 		<Container id="reRender" key="reRender" sx={formAttributes}>
-			<h3>Generation Parameters</h3>
-			<label htmlFor="pickSpace">Number of cells: </label>
-			<Input type="number" defaultValue={tempNumber} onChange={(e) => { SETtempNumber(+e.target.value); SETnumberOfSpaces(tempNumber); SEThexRoster(newRoster()); }} />
-			{/* <button className={`btn bg-blue`} onClick={() => {
-				SETnumberOfSpaces(tempNumber);
-				SEThexRoster(newRoster());
-			}
-			}>Re-shuffle</button > */}
+			{/* <h3>Generation Parameters</h3> */}
+			<InputGroup><InputLeftAddon children="Number of cells" />
+				<NumberInput id="cellCount" defaultValue={numberOfSpaces} min={1}
+					onChange={(e) => { SETnumberOfSpaces(+e); SEThexRoster(newRoster()) }} step={1} precision={0} >
+					<NumberInputField />
+					<NumberInputStepper>
+						<NumberIncrementStepper />
+						<NumberDecrementStepper />
+					</NumberInputStepper>
+				</NumberInput>
+			</InputGroup>
 		</Container>
 
 	const gameGlobals: gameGlobals = {
@@ -96,19 +98,22 @@ export default function GenerativeBoard() {
 	}
 
 	return <HexboardLayout id="generative" displayTitle="Generative Map"
-	forms={[editForm, <SaveRosterButton
-		hexRoster={hexRoster}
-		gameGlobals={gameGlobals}
-	/>,
+		forms={[<CanvasParameters
+			canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
+			canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
+			hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
+		/>,
 		<BoardParameters
 			hexRadius={hexRadius}
 			separationMultiplier={separationMultiplier}
 			SEThexRadius={SEThexRadius}
-			SETseparationMultiplier={SETseparationMultiplier} />,
-		<CanvasParameters
-			canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
-			canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
-			hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
-		/>]} board={<Hexboard hexRoster={hexRoster} gameGlobals={gameGlobals} canvasGlobals={canvasGlobals} />} 
+			SETseparationMultiplier={SETseparationMultiplier}
+			hexgridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin} />,
+			editForm,
+		<SaveRosterButton
+			hexRoster={hexRoster}
+			gameGlobals={gameGlobals}
+		/>,
+		]} board={<Hexboard hexRoster={hexRoster} gameGlobals={gameGlobals} canvasGlobals={canvasGlobals} />}
 		roster={<RosterDisplay hexRoster={hexRoster} />} />
 }
