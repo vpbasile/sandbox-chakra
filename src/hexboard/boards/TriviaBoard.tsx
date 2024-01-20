@@ -1,12 +1,13 @@
-import Hexboard from '../HexBoardSVG';
 import { useState } from "react";
+import Hexboard from '../HexBoardSVG';
+import HexboardLayout from '../HexboardLayout';
+import BoardParameters from '../forms/BoardParameters';
+import CanvasParameters from '../forms/CanvasParameters';
 import { gameGlobals, hexagon } from '../hexDefinitions';
 import { blackHexes, clickMessage, colorHexes } from '../hexFunctions';
-import { hexOrientations, cube_ring, calcCenteredRectangle } from '../hexMath'
-import CanvasControl from '../forms/CanvasControl';
-import BoardControl from '../forms/BoardControl';
+import { calcCenteredRectangle, cube_ring, hexOrientations } from '../hexMath';
+import RosterDisplay from '../hexRosterDisplay';
 import aspectRatio from '../rectMath';
-import { Box } from '@chakra-ui/react';
 
 export default function TriviaBoard() {
   // Constants, States, and Functions unique to this board
@@ -71,31 +72,22 @@ export default function TriviaBoard() {
     canvasBackgroundColor: '#000',
   }
 
-  return (
-
-    <Box id="triviaBoardContainer">
-      <Box id="sideBar" className="">
-        <BoardControl
-          hexRadius={hexRadius}
-          separationMultiplier={separationMultiplier}
-          SEThexRadius={SEThexRadius}
-          SETseparationMultiplier={SETseparationMultiplier} />
-        <CanvasControl
-          canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
-          canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
-          hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
-        />
-      </Box>
-      <Box id='displayBoard'>
-
-          <Hexboard
-            gameGlobals={gameGlobals}
-            canvasGlobals={canvasGlobals}
-            hexRoster={hexRoster}
-            displayRoster={true}
-          //   logo={logo}
-          />
-      </Box>
-    </Box>
-  );
+  return <HexboardLayout id="triviaBoardContainer" displayTitle="Trivia Board"
+  forms={[<BoardParameters
+    hexRadius={hexRadius}
+    separationMultiplier={separationMultiplier}
+    SEThexRadius={SEThexRadius}
+    SETseparationMultiplier={SETseparationMultiplier} />,
+  <CanvasParameters
+    canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
+    canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
+    hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
+  />
+  ]
+  } board={<Hexboard
+    gameGlobals={gameGlobals}
+    canvasGlobals={canvasGlobals}
+    hexRoster={hexRoster}
+  //   logo={logo}
+  />} roster={<RosterDisplay hexRoster={hexRoster} />} />
 }

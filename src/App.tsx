@@ -37,7 +37,7 @@ function App() {
     { uid: makeUID++, path: "/sandbox-chakra/keyboard", displayName: "Keyboard", element: <Keyboard />, group: "hex" },
     { uid: makeUID++, path: "/sandbox-chakra/generative", displayName: "Generative Map", element: <GenerativeBoard />, group: "hex" },
     { uid: makeUID++, path: "/sandbox-chakra/savedHexBoard", displayName: "Saved Board", element: <SavedBoard />, group:"hex" },
-    { uid: makeUID++, path: "/sandbox-chakra/create", displayName: "Create Board", element: <CreateBoard />, group: "hex" },
+    { uid: makeUID++, path: "/sandbox-chakra/create", displayName: "Create Board", element: <CreateBoard />, group: "broken" },
   ];
   return (
     <BrowserRouter >

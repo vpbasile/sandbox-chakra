@@ -3,6 +3,7 @@ enum routeGroups {
   hex = "Hex Board",
   example = "Example",
   dbMan = "DBMan",
+  broken = "Broken",
 }
 
 export type groupTag = keyof typeof routeGroups;

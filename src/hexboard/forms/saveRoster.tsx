@@ -1,5 +1,6 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Button, Container } from "@chakra-ui/react";
 import { gameGlobals, hexagon } from "../hexDefinitions";
+import { formAttributes } from "./style";
 
 export default function SaveRosterButton(props: {
 	hexRoster: hexagon[],
@@ -9,7 +10,7 @@ export default function SaveRosterButton(props: {
 	const gameGlobals = props.gameGlobals;
 
 	const saveRoster = (hexRoster: hexagon[]) => {
-		let exportObject: { gameGlobals: gameGlobals, hexRoster: hexagon[] } = {
+		const exportObject: { gameGlobals: gameGlobals, hexRoster: hexagon[] } = {
 			gameGlobals: gameGlobals,
 			hexRoster: hexRoster
 		}
@@ -17,7 +18,7 @@ export default function SaveRosterButton(props: {
 		const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
 			JSON.stringify(exportObject)
 		)}`;
-		
+
 		const link = document.createElement("a");
 		link.href = jsonString;
 		link.download = "data.json";
@@ -33,7 +34,7 @@ export default function SaveRosterButton(props: {
 
 	// }
 
-	return (<Box>
+	return (<Container key={"saveRosterButton"} sx={formAttributes}>
 		<Button onClick={() => saveRoster(hexRoster)} >Save Roster</Button>
-	</Box>)
+	</Container>)
 }

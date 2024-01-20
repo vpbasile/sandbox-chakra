@@ -1,13 +1,16 @@
 
-import { Box, Input } from "@chakra-ui/react";
+import { Box, Button, Container, Input } from "@chakra-ui/react";
 import { useState } from "react";
 import Hexboard from "../HexBoardSVG";
-import BoardControl from "../forms/BoardControl";
-import CanvasControl from "../forms/CanvasControl";
+import HexboardLayout from "../HexboardLayout";
+import BoardParameters from "../forms/BoardParameters";
+import CanvasParameters from "../forms/CanvasParameters";
 import SaveRosterButton from "../forms/saveRoster";
+import { formAttributes } from "../forms/style";
 import { gameGlobals, hexagon } from "../hexDefinitions";
 import { clickMessage } from "../hexFunctions";
 import { calcCenteredRectangle, cube_ring, hexOrientations } from "../hexMath";
+import RosterDisplay from "../hexRosterDisplay";
 import aspectRatio from "../rectMath";
 
 export default function CreateBoard() {
@@ -52,7 +55,7 @@ export default function CreateBoard() {
 		SEThexRoster(tempRoster);
 	}
 
-	const form = <Box className="form-group border bg-orange p-3">
+	const form = <Container sx={formAttributes}>
 		<h3>Add Hex</h3>
 		<Box id="setQBox">
 			<label className="" htmlFor="qField">q:</label>
@@ -69,9 +72,9 @@ export default function CreateBoard() {
 			/> */}
 		</Box>
 		<Box id="buttons">
-			<button className="btn form-control bg-orange" onClick={() => addHex()}>Add</button>
+			<Button onClick={() => addHex()}>Add</Button>
 		</Box>
-	</Box>
+	</Container>
 
 	const gameGlobals: gameGlobals = {
 		orientation: defaultOrientation,
@@ -94,32 +97,25 @@ export default function CreateBoard() {
 		canvasBackgroundColor: '#000'
 	}
 
-	return (
-		<Box id="generativeContainer">
-			<Box id="sidebar">
-				<SaveRosterButton
-					hexRoster={hexRoster}
-					gameGlobals={gameGlobals}
-				/>
-				{form}
-				<BoardControl
-					hexRadius={hexRadius}
-					separationMultiplier={separationMultiplier}
-					SEThexRadius={SEThexRadius}
-					SETseparationMultiplier={SETseparationMultiplier} />
-				<CanvasControl
-					canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
-					canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
-					hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
-				/>
-			</Box>
-			<Box id='createBoard'>
-				<Hexboard
-					hexRoster={hexRoster}
-					gameGlobals={gameGlobals}
-					canvasGlobals={canvasGlobals}
-				/>
-			</Box>
-		</Box>
-	)
+	return <HexboardLayout id="createBoard" displayTitle="Create Board"
+		forms={[form, <SaveRosterButton
+			hexRoster={hexRoster}
+			gameGlobals={gameGlobals}
+		/>,
+			<BoardParameters
+				hexRadius={hexRadius}
+				separationMultiplier={separationMultiplier}
+				SEThexRadius={SEThexRadius}
+				SETseparationMultiplier={SETseparationMultiplier} />,
+			<CanvasParameters
+				canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
+				canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
+				hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
+			/>]}
+		board={<Hexboard
+			hexRoster={hexRoster}
+			gameGlobals={gameGlobals}
+			canvasGlobals={canvasGlobals} />}
+		roster={<RosterDisplay hexRoster={hexRoster} />}
+	/>
 }

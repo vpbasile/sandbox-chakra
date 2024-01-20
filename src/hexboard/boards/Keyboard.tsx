@@ -1,12 +1,13 @@
-import Hexboard from '../HexBoardSVG';
 import { useState } from "react";
+import Hexboard from "../HexBoardSVG";
+import HexboardLayout from '../HexboardLayout';
+import BoardParameters from '../forms/BoardParameters';
+import CanvasParameters from '../forms/CanvasParameters';
 import { gameGlobals, hexagon } from '../hexDefinitions';
-import { hexOrientations } from '../hexMath';
-import aspectRatio from '../rectMath';
 import { clickMessage } from '../hexFunctions';
-import BoardControl from '../forms/BoardControl';
-import CanvasControl from '../forms/CanvasControl';
-import { Box } from '@chakra-ui/react';
+import { hexOrientations } from '../hexMath';
+import RosterDisplay from "../hexRosterDisplay";
+import aspectRatio from '../rectMath';
 
 
 export default function Keyboard() {
@@ -69,31 +70,20 @@ export default function Keyboard() {
 		canvasBackgroundColor: '#000',
 	}
 
-	return (
-		<Box>
-			<Box id="sideBar">
-				<BoardControl
-					hexRadius={hexRadius} SEThexRadius={SEThexRadius}
-					separationMultiplier={separationMultiplier} SETseparationMultiplier={SETseparationMultiplier}
-				/>
-				<CanvasControl
-					canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
-					canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
-					hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
-				/>
-			</Box>
-			<Box id="displayBoardContainer">
-				<Box id='displayBoard' className="col-md-10">
-					<Hexboard
-						hexRoster={keyboardHexes}
-						gameGlobals={gameGlobals}
-						canvasGlobals={canvasGlobals}
-						displayRoster={true}
-					//   logo={logo}
-					/>
-				</Box>
-			</Box>
-		</Box>
-
-	);
+	return <HexboardLayout id="keyboard" displayTitle="Keyboard"
+	forms={[
+		<BoardParameters
+			hexRadius={hexRadius} SEThexRadius={SEThexRadius}
+			separationMultiplier={separationMultiplier} SETseparationMultiplier={SETseparationMultiplier} />,
+		<CanvasParameters
+			canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
+			canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
+			hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin} />
+	]}
+		board={<Hexboard
+			hexRoster={keyboardHexes}
+			gameGlobals={gameGlobals}
+			canvasGlobals={canvasGlobals} />}
+		roster={<RosterDisplay hexRoster={keyboardHexes} />}
+	/>
 }

@@ -1,15 +1,15 @@
 
 // <> Import components
+import { gameGlobals, hexClickFunction, hexagon } from '../../hexDefinitions';
+import { centerHexagon, reflectAcrossAxis } from '../../hexFunctions';
 import { hexOrientations } from '../../hexMath';
 import { randomBounded } from '../../math';
 import { BranchObject, hexplicate } from './snowFlake';
-import { centerHexagon, reflectAcrossAxis } from '../../hexFunctions';
-import { gameGlobals, hexClickFunction, hexagon } from '../../hexDefinitions';
 
-import Hexboard from '../../HexBoardSVG';
 import { Box } from '@chakra-ui/react';
-// import BoardControl from '../../forms/BoardControl';
-// import CanvasControl from '../../forms/CanvasControl';
+import Hexboard from '../../HexBoardSVG';
+// import BoardParameters from '../../forms/BoardParameters';
+// import CanvasParameters from '../../forms/CanvasParameters';
 
 export default function Snowflake() {
 	// Define the canvas and snowflake properties
@@ -80,12 +80,12 @@ export default function Snowflake() {
 			{/* <Box id="sideBar" className="col-md-2">
 				<h2>Sidebar</h2>
 				<p>This is the sidebar</p> */}
-			{/* <BoardControl
+			{/* <BoardParameters
 					hexRadius={hexRadius}
 					separationMultiplier={separationMultiplier}
 					SEThexRadius={SEThexRadius}
 					SETseparationMultiplier={SETseparationMultiplier} />
-				<CanvasControl
+				<CanvasParameters
 					canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
 					canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
 					hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}

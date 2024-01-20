@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { canvasGlobals, gameGlobals } from "../../hexDefinitions";
 import Hexboard from "../../HexBoardSVG";
-import fileData from './data.json';
-import { hexOrientations } from '../../hexMath';
-import CanvasControl from '../../forms/CanvasControl';
-import BoardControl from '../../forms/BoardControl';
+import HexboardLayout from '../../HexboardLayout';
+import BoardParameters from '../../forms/BoardParameters';
+import CanvasParameters from '../../forms/CanvasParameters';
+import { canvasGlobals, gameGlobals } from "../../hexDefinitions";
 import { clickMessage } from '../../hexFunctions';
-import { Box } from '@chakra-ui/react';
+import { hexOrientations } from '../../hexMath';
+import RosterDisplay from '../../hexRosterDisplay';
+import fileData from './data.json';
 
 export default function SavedBoard() {
 	// <> States that control canvas parameters
@@ -32,7 +33,7 @@ export default function SavedBoard() {
 		separationMultiplier: separationMultiplier,
 		textSize: 12,
 		drawBackBoard: true,
-		onClick:clickMessage
+		onClick: clickMessage
 	}
 
 	const canvasGlobals: canvasGlobals = {
@@ -42,32 +43,17 @@ export default function SavedBoard() {
 		canvasBackgroundColor: '#000',
 	}
 
-	return (
-		<Box className="row" id="savedBoardContainer">
-			<Box id='displayBoard' className="col-md-10">
-	
-					<Hexboard
-						hexRoster={hexRoster}
-						gameGlobals={gameGlobals}
-						canvasGlobals={canvasGlobals}
-					//   logo={logo}
-					/>
-			</Box>
-			{/* <Box id="rosterDisplay" className="">
-				<RosterDisplay hexRoster={hexRoster} />
-			</Box> */}
-			<Box id="sideBar" className="col-md-2"><BoardControl
-				hexRadius={hexRadius}
-				separationMultiplier={separationMultiplier}
-				SEThexRadius={SEThexRadius}
-				SETseparationMultiplier={SETseparationMultiplier} />
-				<CanvasControl
-					canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
-					canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
-					hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
-				/>
-			</Box>
-		</Box>
-
-	);
+	return <HexboardLayout id="savedBoard" displayTitle="Saved Board" forms={[<BoardParameters
+		hexRadius={hexRadius}
+		separationMultiplier={separationMultiplier}
+		SEThexRadius={SEThexRadius}
+		SETseparationMultiplier={SETseparationMultiplier} />,
+	<CanvasParameters
+		canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
+		canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
+		hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
+	/>]} board={<Hexboard
+		hexRoster={hexRoster}
+		gameGlobals={gameGlobals}
+		canvasGlobals={canvasGlobals} />} roster={<RosterDisplay hexRoster={hexRoster} />} />
 }

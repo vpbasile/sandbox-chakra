@@ -16,7 +16,7 @@ export default function NavMenu(props: { routesList: routeType[] }) {
                     return null;
                 }
                 keyGen++;
-                return (<MenuGroup key={keyGen} title={group}>
+                return (<MenuGroup key={keyGen} title={'---'+group+'---------'}>
                     {groupRoutes.map((route) => {
                         keyGen++;
                         return (<MenuItem key={keyGen} as={Link} to={route.path}>{route.displayName}</MenuItem>)

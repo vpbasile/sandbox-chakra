@@ -1,8 +1,7 @@
 import Hexagon from './Hexagon';
 import { canvasGlobals, coordinateXY, gameGlobals, hexagon } from "./hexDefinitions";
-import { directionVectors, hex_to_pixel } from './hexMath';
 import { clickMessage } from './hexFunctions';
-import RosterDisplay from './RosterDisplay';
+import { directionVectors, hex_to_pixel } from './hexMath';
 
 //style
 import './hex.css';
@@ -13,7 +12,6 @@ export interface hexboardProps {
 	hexRoster: hexagon[];
 	textSize?: number;
 	cssClasses?: string;
-	displayRoster?: boolean
 }
 
 export default function Hexboard(props: hexboardProps) {
@@ -25,7 +23,7 @@ export default function Hexboard(props: hexboardProps) {
 	const canvasHeight = canvasGlobals.canvasHeight;
 	const hexGridOrigin = canvasGlobals.hexGridOrigin;
 	const cssClasses = props.cssClasses;
-	let range = { xMin: 0, xMax: 0, yMin: 0, yMax: 0 }
+	const range = { xMin: 0, xMax: 0, yMin: 0, yMax: 0 }
 	// <> Debugging logs
 	// console.log(`Canvas size: ${Math.floor(canvasWidth)}, ${Math.floor(canvasHeight)}`)
 	// console.log(`Grid origin: ${Math.floor(hexGridOrigin.x)}, ${Math.floor(hexGridOrigin.y)}`)
@@ -44,7 +42,7 @@ export default function Hexboard(props: hexboardProps) {
 			if (Math.abs(s) > maxRadius) { maxRadius = s }
 		});
 		maxRadius++;
-		let cornerPoints: coordinateXY[] = directionVectors.map((vector) => {
+		const cornerPoints: coordinateXY[] = directionVectors.map((vector) => {
 			const corner = hex_to_pixel(vector.q * maxRadius, vector.r * maxRadius, gameGlobals);
 			if (corner.x < range.xMin) { range.xMin = corner.x }
 			if (corner.x > range.xMax) { range.xMax = corner.x }
@@ -101,7 +99,6 @@ export default function Hexboard(props: hexboardProps) {
 			{/* <> The bounding box */}
 			<rect width={rectInfo.width} height={rectInfo.height} x={rectInfo.x} y={rectInfo.y} style={{ fill: "none", stroke: "#F4C9C9", strokeWidth: "10px", opacity: "1.0" }} />
 		</svg >
-		{props.displayRoster && <RosterDisplay hexRoster={hexRoster} />}
 	</>)
 
 	function boundRect(range: { xMin: number; xMax: number; yMin: number; yMax: number; }): { width: number, height: number, x: number, y: number } {
