@@ -6,8 +6,9 @@ import { hexOrientations } from '../../hexMath';
 import { randomBounded } from '../../math';
 import { BranchObject, hexplicate } from './snowFlake';
 
-import { Box } from '@chakra-ui/react';
 import Hexboard from '../../HexBoardSVG';
+import HexboardLayout from '../../HexboardLayout';
+import RosterDisplay from '../../hexRosterDisplay';
 // import BoardParameters from '../../forms/BoardParameters';
 // import CanvasParameters from '../../forms/CanvasParameters';
 
@@ -66,31 +67,13 @@ export default function Snowflake() {
 		canvasBackgroundColor: '000'
 	}
 
-	return (
-		<Box className="row" id="snowflakeBoardContainer">
-			<Box id='displayBoard' className="col-md-10">
-					<Hexboard
-						gameGlobals={gameGlobals}
-						canvasGlobals={canvasGlobals}
-						hexRoster={hexRoster}
-						cssClasses={"viewHeight100"}
-						displayRoster={true}
-					/>
-			</Box>
-			{/* <Box id="sideBar" className="col-md-2">
-				<h2>Sidebar</h2>
-				<p>This is the sidebar</p> */}
-			{/* <BoardParameters
-					hexRadius={hexRadius}
-					separationMultiplier={separationMultiplier}
-					SEThexRadius={SEThexRadius}
-					SETseparationMultiplier={SETseparationMultiplier} />
-				<CanvasParameters
-					canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
-					canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
-					hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
-				/> */}
-			{/* </Box> */}
-		</Box>
-	)
+	return <HexboardLayout id="snowflakeBoardContainer" displayTitle='Snowflake'
+		forms={[]} board={<Hexboard
+			gameGlobals={gameGlobals}
+			canvasGlobals={canvasGlobals}
+			hexRoster={hexRoster}
+			cssClasses={"viewHeight100"}
+		/>}
+		roster={<RosterDisplay hexRoster={hexRoster} />}
+	/>
 }

@@ -1,6 +1,6 @@
 import { coordinateHex, direction, hexagon } from "../../hexDefinitions";
+import { reflectAcrossAxis } from '../../hexFunctions';
 import { directionVectors, rolloverDirection, sCoordinate } from "../../hexMath";
-import { reflectAcrossAxis } from '../../hexFunctions'
 
 export type snowflakeBranch = {
 	seed: coordinateHex,
@@ -26,9 +26,9 @@ export class BranchObject {
 		const seedHex = this.seed;
 		const length = this.length;
 		const vector = directionVectors[this.direction];
-		let lineRoster: hexagon[] = []
+		const lineRoster: hexagon[] = []
 		for (let i = 1; i <= length; i++) {
-			let tempHex: hexagon = { q: seedHex.q + i * vector.q, r: seedHex.r + i * vector.r };
+			const tempHex: hexagon = { q: seedHex.q + i * vector.q, r: seedHex.r + i * vector.r };
 			if (cssClasses) { tempHex.cssClasses = cssClasses; }
 			lineRoster.push(tempHex);
 		}
