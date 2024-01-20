@@ -66,7 +66,7 @@ export default function GenerativeBoard() {
 		<Container id="reRender" key="reRender" sx={formAttributes}>
 			{/* <h3>Generation Parameters</h3> */}
 			<InputGroup><InputLeftAddon children="Number of cells" />
-				<NumberInput id="cellCount" defaultValue={numberOfSpaces} min={1}
+				<NumberInput id="cellCount" defaultValue={numberOfSpaces} min={2}
 					onChange={(e) => { SETnumberOfSpaces(+e); SEThexRoster(newRoster()) }} step={1} precision={0} >
 					<NumberInputField />
 					<NumberInputStepper>

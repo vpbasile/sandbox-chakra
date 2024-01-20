@@ -9,9 +9,8 @@ import SaveRosterButton from "../forms/saveRoster";
 import { formAttributes } from "../forms/style";
 import { gameGlobals, hexagon } from "../hexDefinitions";
 import { clickMessage } from "../hexFunctions";
-import { calcCenteredRectangle, cube_ring, hexOrientations } from "../hexMath";
+import { cube_ring, hexOrientations } from "../hexMath";
 import RosterDisplay from "../hexRosterDisplay";
-import aspectRatio from "../rectMath";
 
 export default function CreateBoard() {
 	// <> States that control canvas parameters
@@ -55,7 +54,7 @@ export default function CreateBoard() {
 		SEThexRoster(tempRoster);
 	}
 
-	const form = <Container sx={formAttributes}>
+	const form = <Container sx={formAttributes} color={'orange.500'}>
 		<h3>Add Hex</h3>
 		<Box id="setQBox">
 			<label className="" htmlFor="qField">q:</label>
@@ -86,11 +85,10 @@ export default function CreateBoard() {
 	}
 
 	// <><><> Calculate the size of the canvas based on the hex roster
-	const canvasDefaults = calcCenteredRectangle(hexRoster, gameGlobals)
-	const [canvasHeight, SETcanvasHeight] = useState(canvasDefaults.canvasHeight * separationMultiplier)
-	const [canvasWidth, SETcanvasWidth] = useState(canvasHeight * aspectRatio())
+	const [canvasHeight, SETcanvasHeight] = useState(5600)
+	const [canvasWidth, SETcanvasWidth] = useState(9000)
 	// Since this is a centered board, we can calculate the origin based on the height and width
-	const [hexGridOrigin, SEThexGridOrigin] = useState({ x: canvasWidth / 2, y: canvasHeight / 2 });
+	const [hexGridOrigin, SEThexGridOrigin] = useState({ x: 3000, y: 2500 });
 
 	const canvasGlobals = {
 		canvasWidth, canvasHeight, hexGridOrigin,
@@ -98,20 +96,24 @@ export default function CreateBoard() {
 	}
 
 	return <HexboardLayout id="createBoard" displayTitle="Create Board"
-		forms={[form, <SaveRosterButton
-			hexRoster={hexRoster}
-			gameGlobals={gameGlobals}
-		/>,
-			<BoardParameters
-				hexRadius={hexRadius}
-				separationMultiplier={separationMultiplier}
-				SEThexRadius={SEThexRadius}
-				SETseparationMultiplier={SETseparationMultiplier} />,
+		forms={[
 			<CanvasParameters
 				canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
 				canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
 				hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
-			/>]}
+			/>,
+			<BoardParameters
+				hexRadius={hexRadius}
+				separationMultiplier={separationMultiplier}
+				SEThexRadius={SEThexRadius}
+				SETseparationMultiplier={SETseparationMultiplier}
+				hexgridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
+			/>,
+			form,
+			<SaveRosterButton
+				hexRoster={hexRoster}
+				gameGlobals={gameGlobals}
+			/>,]}
 		board={<Hexboard
 			hexRoster={hexRoster}
 			gameGlobals={gameGlobals}

@@ -11,11 +11,11 @@ import fileData from './data.json';
 
 export default function SavedBoard() {
 	// <> States that control canvas parameters
-	const [canvasWidth, SETcanvasWidth] = useState(window.innerWidth)
-	const [canvasHeight, SETcanvasHeight] = useState(2 * window.innerHeight)
+	const [canvasWidth, SETcanvasWidth] = useState(6000)
+	const [canvasHeight, SETcanvasHeight] = useState(4200)
 	const [hexRadius, SEThexRadius] = useState(200);
 	const [separationMultiplier, SETseparationMultiplier] = useState(1.1)
-	const [hexGridOrigin, SEThexGridOrigin] = useState({ x: canvasWidth / 2, y: canvasHeight / 2 });
+	const [hexGridOrigin, SEThexGridOrigin] = useState({ x: 3000, y: 700 });
 	const [orientation] = useState(hexOrientations["flat-top"])
 	// function toggleOrientation(): void {
 	// 	if (orientation===hexOrientations["flat-top"]){SETorientation(hexOrientations["pointy-top"])} else {
@@ -47,7 +47,7 @@ export default function SavedBoard() {
 		hexRadius={hexRadius}
 		separationMultiplier={separationMultiplier}
 		SEThexRadius={SEThexRadius}
-		SETseparationMultiplier={SETseparationMultiplier} />,
+		SETseparationMultiplier={SETseparationMultiplier} hexgridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin} />,
 	<CanvasParameters
 		canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
 		canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}

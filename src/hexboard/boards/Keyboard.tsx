@@ -59,8 +59,8 @@ export default function Keyboard() {
 	}
 
 	const multiplier = aspectRatio();
-	const [canvasWidth, SETcanvasWidth] = useState(2 * hexRadius * 12 * separationMultiplier)
-	const [canvasHeight, SETcanvasHeight] = useState(canvasWidth / multiplier)
+	const [canvasWidth, SETcanvasWidth] = useState(5000 * separationMultiplier)
+	const [canvasHeight, SETcanvasHeight] = useState(1500)
 	const originY = hexRadius * separationMultiplier;
 	const [hexGridOrigin, SEThexGridOrigin] = useState({ x: originY * multiplier, y: originY });
 	const canvasGlobals = {
