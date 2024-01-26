@@ -68,20 +68,6 @@ export default function Hexboard(props: hexboardProps) {
 		if (point.y < rectBounds.y.min) { rectBounds.y.min = point.y }
 		if (point.y > rectBounds.y.max) { rectBounds.y.max = point.y }
 	}
-	const hexes = hexRoster.map((hex: hexagon) => {
-		const thisHexKey = hexKey++;
-		return <Hexagon
-			gameGlobals={gameGlobals}
-			key={thisHexKey}
-			id={thisHexKey}
-			q={hex.q}
-			r={hex.r}
-			cssClasses={hex.cssClasses}
-			hexText={hex.hexText}
-			clickMessage={clickMessage(hex, thisHexKey, hex.hexText)}
-			expandBounds={expandBounds}
-		/>
-	})
 
 	console.log(`Rect bounds: ${JSON.stringify(rectBounds)}`)
 	// Do the math for the bounding hex and box
@@ -101,7 +87,20 @@ export default function Hexboard(props: hexboardProps) {
 				id={`backboard`}
 				points={backboardPoints}
 			/>}
-			{hexes}
+			{/* All of the hexes */}
+			{hexRoster.map((hex: hexagon) => {
+				const thisHexKey = hexKey++;
+				return <Hexagon
+					gameGlobals={gameGlobals}
+					key={thisHexKey}
+					id={thisHexKey}
+					q={hex.q}
+					r={hex.r}
+					cssClasses={hex.cssClasses}
+					hexText={hex.hexText}
+					clickMessage={clickMessage(hex, thisHexKey, hex.hexText)}
+					expandBounds={expandBounds} />;
+			})}
 		</svg >
 	</>)
 }
