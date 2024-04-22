@@ -1,10 +1,12 @@
 import { Box, ChakraProvider, Heading, Link, Text } from "@chakra-ui/react";
-import nebulaTheme from "../../ignores/themeNebula";
+// import nebulaTheme from "../../ignores/themeNebula";
 import MyLorem from "../helpers/myLorem";
 
 export default function NebulaExample() {
   return (
-    <ChakraProvider theme={nebulaTheme}>
+    <ChakraProvider
+    // theme={nebulaTheme}
+    >
       <Box>
         <Box p="8" my={"8"} boxShadow={"cyanShadow"} bgColor={"green.bright"} border={"2px solid pink"}>
           <Heading as={'h2'} color={'green.bright'}>Next</Heading>

@@ -12,6 +12,7 @@ import Keyboard from './hexboard/boards/Keyboard';
 import SavedBoard from './hexboard/boards/SavedBoard';
 import Snowflake from './hexboard/boards/Snowflake';
 import TriviaBoard from './hexboard/boards/TriviaBoard';
+import WordSoupGame from './hexboard/boards/word-soup';
 import Layout from './layout';
 import HomeComponent from './sandboxHome';
 import UniformShowcase from './starfleet/UniformShowcase';
@@ -33,6 +34,7 @@ function App() {
     { uid: makeUID++, path: "/sandbox-chakra/responsive", displayName: "Responsive", element: <ResponsiveExample />, group: "example" },
     // <> Hexboard components
     { uid: makeUID++, path: "/sandbox-chakra/trivia", displayName: "Trivia board", element: <TriviaBoard />, group: "hex" },
+    { uid: makeUID++, path: "/sandbox-chakra/word-soup", displayName: "Word Soup", element: <WordSoupGame />, group: "hex"},
     { uid: makeUID++, path: "/sandbox-chakra/keyboard", displayName: "Keyboard", element: <Keyboard />, group: "hex" },
     { uid: makeUID++, path: "/sandbox-chakra/generative", displayName: "Generative Map", element: <GenerativeBoard />, group: "hex" },
     { uid: makeUID++, path: "/sandbox-chakra/savedHexBoard", displayName: "Saved Board", element: <SavedBoard />, group: "hex" },
@@ -45,8 +47,8 @@ function App() {
     <BrowserRouter >
       <Routes>
         <Route path='/sandbox-chakra/' element={<Layout routesList={routes} />}>
-          <Route index element={<HomeComponent />} />
-          {routes.map((route) => <Route key={route.uid} path={route.path} element={route.element} />)}
+            <Route index element={<HomeComponent />} />
+            {routes.map((route) => <Route key={route.uid} path={route.path} element={route.element} />)}
         </Route>
       </Routes >
     </BrowserRouter>

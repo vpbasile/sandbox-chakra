@@ -1,6 +1,6 @@
 import { Box, Center, Flex, Heading, Radio, RadioGroup, Slider, SliderFilledTrack, SliderMark, SliderThumb, SliderTrack, Stack, Text } from "@chakra-ui/react";
-import dc from "../../ignores/dc-retro.jpg";
-import gl from "../../ignores/gl.jpg";
+// import dc from "../../ignores/dc-retro.jpg";
+// import gl from "../../ignores/gl.jpg";
 import sunBlue from "/img/sunTile/sunTileBlue.svg";
 import sunFlower from "/img/sunTile/sunTileFlower.svg";
 import sunGreen from "/img/sunTile/sunTileGreen.svg";
@@ -17,8 +17,8 @@ export default function Tesselation() {
         ["sunFlower", { image: sunFlower }],
         ["blue", { image: sunBlue }],
         ["green", { image: sunGreen }],
-        ['Green Lantern', { image: gl }],
-        ["DC Comics", { image: dc }]
+        // ['Green Lantern', { image: gl }],
+        // ["DC Comics", { image: dc }]
     ]
 
     const [bgSize, SETbgSize] = useState(100);

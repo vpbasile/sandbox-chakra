@@ -1,19 +1,19 @@
 function printTime() {
-    var d = new Date();
-    var years = d.getFullYear();
-    var months = d.getMonth();
-    var days = d.getDate();
-    var dayofWeek = d.getDay();
-    var hours = d.getHours();
-    var mins = d.getMinutes();
-    var secs = d.getSeconds();
-    var compiledString = years + "-" + months + "-" + days + " (" + dayName(dayofWeek) + ") " + hours+":"+mins+":"+secs;
+    let d = new Date();
+    let years = d.getFullYear();
+    let months = d.getMonth();
+    let days = d.getDate();
+    let dayofWeek = d.getDay();
+    let hours = d.getHours();
+    let mins = d.getMinutes();
+    let secs = d.getSeconds();
+    let compiledString = years + "-" + months + "-" + days + " (" + dayName(dayofWeek) + ") " + hours+":"+mins+":"+secs;
     console.log(compiledString)
 }
 setInterval(printTime, 1000);
 
 function dayName(dayNum) {
-    var returnString;
+    let returnString;
     switch(dayNum) {
         case 0: returnString="Sunday"; break;
         case 1: returnString="Monday"; break;

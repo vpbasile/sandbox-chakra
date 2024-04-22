@@ -50,7 +50,7 @@ export default function Hexagon(props:hexProps) {
 	function displayText() {
 		if (hexText !== undefined) {
 			return (<text
-				style={{ fill: "white" }}
+				style={{ fill: "black" }}
 				x={center.x}
 				y={center.y}
 				textAnchor="middle"
@@ -60,6 +60,7 @@ export default function Hexagon(props:hexProps) {
 				{hexText}
 			</text>)
 		}
+
 	}
 	const textForHex = displayText()
 

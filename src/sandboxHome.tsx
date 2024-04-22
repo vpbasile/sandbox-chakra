@@ -1,5 +1,5 @@
 import { Box, Center, Stack, Text, useColorModeValue } from "@chakra-ui/react";
-import darkPhoto from '../ignores/sandDark60.png';
+import darkPhoto from '../ignores/sandDark60.jpg';
 import lightPhoto from '../ignores/sandLight60.png';
 
 export default function HomeComponent() {

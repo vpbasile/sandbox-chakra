@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { useState } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 import { Outlet } from 'react-router-dom';
 import { routeType } from '../AppTypes';
 import SandboxFooter from './sandboxFooter';
@@ -16,8 +17,10 @@ export default function Layout(props: { routesList: routeType[] }) {
     return (<Box id='layoutWrapper'>
         {showLabels && <SandboxHeader routesList={routesList} hideLabels={hideLables} />}
         <Box id='mainBody' p={9}>
-            {/* This is where the children will be rendered */}
-            <Outlet />
+            <ErrorBoundary fallback={<Box>Something went wrong</Box>}>
+                {/* This is where the children will be rendered */}
+                <Outlet />
+            </ErrorBoundary>
         </Box>
         {showLabels && <SandboxFooter />}
     </Box>)
