@@ -89,12 +89,13 @@ export default function WordSoupGame() {
     // ---------------------------------------------
     return (
         <Box>
-            <Box id='Playerdisplay'>
-                {players.map((player, index) => (
-                    <Box key={index}>{player.name} {player.score}</Box>
-                ))}
-            </Box>
-            <WordSoupBoard hexRoster={hexRoster} />
+            <WordSoupBoard hexRoster={hexRoster}>{
+                <Box id='Playerdisplay'>
+                    {players.map((player, index) => (
+                        <Box key={index}>{player.name} {player.score}</Box>
+                    ))}
+                </Box>
+            }</WordSoupBoard>
         </Box>
     );
 }

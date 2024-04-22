@@ -1,5 +1,5 @@
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Heading } from '@chakra-ui/react';
-export default function HexboardLayout(props: { id: string, displayTitle: string, forms: JSX.Element[], board: JSX.Element, roster: JSX.Element }) {
+export default function HexboardLayout(props: { id: string, displayTitle: string, forms: JSX.Element[], board: JSX.Element, roster: JSX.Element, children?: JSX.Element}) {
 
     return (<Box>
         <Box display={{ lg: 'flex' }}>
@@ -10,6 +10,8 @@ export default function HexboardLayout(props: { id: string, displayTitle: string
             </Box>
             <Box w={'full'}>
                 <Heading>HexBoard: {props.displayTitle}</Heading>
+                {/* Display any children that were passed as props */}
+                <Box>{props.children}</Box>
                 <Box color={'blue.500'} border={'2px'}>{props.board}</Box>
             </Box>
         </Box>

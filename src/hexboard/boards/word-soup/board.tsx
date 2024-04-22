@@ -8,7 +8,7 @@ import { clickMessage } from '../../hexFunctions';
 import { hexOrientations } from '../../hexMath';
 import RosterDisplay from '../../hexRosterDisplay';
 
-export default function WordSoupBoard(props: {hexRoster: hexagon[]}) {
+export default function WordSoupBoard(props: { hexRoster: hexagon[], children?: JSX.Element }) {
 	const hexRoster = props.hexRoster
 	// <> States that control canvas parameters
 	const [canvasWidth, SETcanvasWidth] = useState(6000)
@@ -47,5 +47,7 @@ export default function WordSoupBoard(props: {hexRoster: hexagon[]}) {
 	/>]} board={<Hexboard
 		hexRoster={hexRoster}
 		gameGlobals={gameGlobals}
-		canvasGlobals={canvasGlobals} />} roster={<RosterDisplay hexRoster={hexRoster} />} />
+		canvasGlobals={canvasGlobals} />} roster={<RosterDisplay hexRoster={hexRoster} />} >
+		{props.children}
+	</HexboardLayout>
 }
