@@ -1,56 +1,64 @@
 import { Box } from '@chakra-ui/react';
 import { useState } from 'react';
+import '../../hex.css';
 import { hexagon } from '../../hexDefinitions';
 import WordSoupBoard from './board';
+// import './color-honey.css';
 import './color-tomato.css';
 export default function WordSoupGame() {
 
     // ---------------------------------------------
     // <><> Create players
     // ---------------------------------------------
-    const players = [{ name: "Player 1", score: 0, words: [] }, { name: "Player 2", score: 0, words: [] }]
+    const players = [
+        { name: "Player 1", score: 0, words: [] },
+        { name: "Player 2", score: 0, words: [] }
+    ]
 
     // ---------------------------------------------
     // <><> Initalize the board
     // ---------------------------------------------
+
+    const usefulClasses = "hex clickable";
     const blankRoster: hexagon[] = [
-        { "q": 0, "r": 0, cssClasses: "clickable", hexText: "z" },
-        { "q": -1, "r": 0, cssClasses: "clickable", hexText: "z" },
-        { "q": -1, "r": 1, cssClasses: "clickable", hexText: "z" },
-        { "q": 0, "r": -1, cssClasses: "clickable", hexText: "z" },
-        { "q": 0, "r": 1, cssClasses: "clickable", hexText: "z" },
-        { "q": 1, "r": -1, cssClasses: "clickable", hexText: "z" },
-        { "q": 1, "r": 0, cssClasses: "clickable", hexText: "z" },
-        { "q": -2, "r": 0, cssClasses: "clickable", hexText: "z" },
-        { "q": -2, "r": 1, cssClasses: "clickable", hexText: "z" },
-        { "q": -2, "r": 2, cssClasses: "clickable", hexText: "z" },
-        { "q": -1, "r": -1, cssClasses: "clickable", hexText: "z" },
-        { "q": -1, "r": 2, cssClasses: "clickable", hexText: "z" },
-        { "q": 0, "r": -2, cssClasses: "clickable", hexText: "z" },
-        { "q": 0, "r": 2, cssClasses: "clickable", hexText: "z" },
-        { "q": 1, "r": -2, cssClasses: "clickable", hexText: "z" },
-        { "q": 1, "r": 1, cssClasses: "clickable", hexText: "z" },
-        { "q": 2, "r": -2, cssClasses: "clickable", hexText: "z" },
-        { "q": 2, "r": -1, cssClasses: "clickable", hexText: "z" },
-        { "q": 2, "r": 0, cssClasses: "clickable", hexText: "z" },
-        { "q": -3, "r": 0, cssClasses: "clickable", hexText: "z" },
-        { "q": -3, "r": 1, cssClasses: "clickable", hexText: "z" },
-        { "q": -3, "r": 2, cssClasses: "clickable", hexText: "z" },
-        { "q": -3, "r": 3, cssClasses: "clickable", hexText: "z" },
-        { "q": -2, "r": -1, cssClasses: "clickable", hexText: "z" },
-        { "q": -2, "r": 3, cssClasses: "clickable", hexText: "z" },
-        { "q": -1, "r": -2, cssClasses: "clickable", hexText: "z" },
-        { "q": -1, "r": 3, cssClasses: "clickable", hexText: "z" },
-        { "q": 0, "r": -3, cssClasses: "clickable", hexText: "z" },
-        { "q": 0, "r": 3, cssClasses: "clickable", hexText: "z" },
-        { "q": 1, "r": -3, cssClasses: "clickable", hexText: "z" },
-        { "q": 1, "r": 2, cssClasses: "clickable", hexText: "z" },
-        { "q": 2, "r": -3, cssClasses: "clickable", hexText: "z" },
-        { "q": 2, "r": 1, cssClasses: "clickable", hexText: "z" },
-        { "q": 3, "r": -3, cssClasses: "clickable", hexText: "z" },
-        { "q": 3, "r": -2, cssClasses: "clickable", hexText: "z" },
-        { "q": 3, "r": -1, cssClasses: "clickable", hexText: "z" },
-        { "q": 3, "r": 0, cssClasses: "clickable", hexText: "z" }
+        // There are 37 heagons in the board, numbered 0-36
+        { "q": 0, "r": 0, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -1, "r": 0, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -1, "r": 1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 0, "r": -1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 0, "r": 1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 1, "r": -1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 1, "r": 0, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -2, "r": 0, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -2, "r": 1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -2, "r": 2, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -1, "r": -1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -1, "r": 2, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 0, "r": -2, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 0, "r": 2, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 1, "r": -2, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 1, "r": 1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 2, "r": -2, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 2, "r": -1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 2, "r": 0, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -3, "r": 0, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -3, "r": 1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -3, "r": 2, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -3, "r": 3, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -2, "r": -1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -2, "r": 3, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -1, "r": -2, cssClasses: usefulClasses, hexText: "*" },
+        { "q": -1, "r": 3, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 0, "r": -3, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 0, "r": 3, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 1, "r": -3, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 1, "r": 2, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 2, "r": -3, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 2, "r": 1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 3, "r": -3, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 3, "r": -2, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 3, "r": -1, cssClasses: usefulClasses, hexText: "*" },
+        { "q": 3, "r": 0, cssClasses: usefulClasses, hexText: "*" }
     ];
 
     const myDice1 = `rstqwx`
@@ -69,11 +77,7 @@ export default function WordSoupGame() {
     function populateHexes(hexRoster: hexagon[]): hexagon[] {
         return hexRoster.map((hex: hexagon) => {
             const newHex = { ...hex };
-            if (hex.cssClasses === "") {
-                return { ...newHex, letter: rollDie(dicePool.pop() || "") };
-            } else {
-                return newHex;
-            }
+            return { ...newHex, letter: rollDie(dicePool.pop() || "&") };
         });
     }
 

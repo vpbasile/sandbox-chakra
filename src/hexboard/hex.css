@@ -110,10 +110,9 @@
 	stroke-width: 10px;
 }
 
-
-body {
+/* body {
 	background-color: var(--background-dark);
-}
+} */
 
 /* All color transitions should be 1 second long. */
 /* * {

@@ -82,6 +82,10 @@ tspan {
 	fill: var(--tomato-med);
 	filter: blur(var(--blur-min));
 }
+.hexText {
+	fill: var(--pasta);
+	stroke: var(--pasta);
+}
 .player0,.purple {
 	fill: var(--player-0-dark);
 	stroke: var(--player-0-light);

@@ -11,10 +11,10 @@ export interface hexProps {
 	cssClasses?: string;
 	hexText?: string;
 	clickMessage: string;
-	expandBounds: (point:{x:number, y:number})=>void;
+	expandBounds: (point: { x: number, y: number }) => void;
 }
 
-export default function Hexagon(props:hexProps) {
+export default function Hexagon(props: hexProps) {
 	const gameGlobals = props.gameGlobals
 	// Cache global variables
 	const hexRadius = gameGlobals.hexRadius;
@@ -37,7 +37,7 @@ export default function Hexagon(props:hexProps) {
 		const x = Math.floor(center.x + hexRadius * Math.cos(theta))
 		const y = Math.floor(center.y + hexRadius * Math.sin(theta))
 		// Handles calculating the bounding box
-		props.expandBounds({x,y})
+		props.expandBounds({ x, y })
 		// console.log(`corner: ${angle} ${x},${y}`)
 		// if this is not the first corner, then we need to add a space
 		if (polygonString !== "") { polygonString += " " }
@@ -50,7 +50,7 @@ export default function Hexagon(props:hexProps) {
 	function displayText() {
 		if (hexText !== undefined) {
 			return (<text
-				style={{ fill: "black" }}
+				className='hexText'
 				x={center.x}
 				y={center.y}
 				textAnchor="middle"
