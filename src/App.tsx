@@ -25,7 +25,7 @@ function App() {
     // <>  Not DB
     { uid: makeUID++, path: "/sandbox-chakra/", element: <HomeComponent />, displayName: "Home", font: "mono", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/project/", element: <ProjectTrack />, displayName: "Project Track", group: "misc" },
-    { uid: makeUID++, path: "/sandbox-chakra/temperature/", element: <TemperatureChart />, displayName: "Temperature", group: "misc"},
+    { uid: makeUID++, path: "/sandbox-chakra/temperature/", element: <TemperatureChart />, displayName: "Temperature", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/starfleet", element: <UniformShowcase />, displayName: "Uniform Showcase", font: "mono", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/cutshadow", element: <Tesselation />, displayName: "Cut Shadow", font: "mono", group: "example" },
     { uid: makeUID++, path: "/sandbox-chakra/slide", element: <SlideExample />, displayName: "Slide Example", font: "mono", group: "example" },
@@ -34,7 +34,7 @@ function App() {
     { uid: makeUID++, path: "/sandbox-chakra/responsive", displayName: "Responsive", element: <ResponsiveExample />, group: "example" },
     // <> Hexboard components
     { uid: makeUID++, path: "/sandbox-chakra/trivia", displayName: "Trivia board", element: <TriviaBoard />, group: "hex" },
-    { uid: makeUID++, path: "/sandbox-chakra/word-soup", displayName: "Word Soup", element: <WordSoupGame />, group: "hex"},
+    { uid: makeUID++, path: "/sandbox-chakra/word-soup", displayName: "Word Soup", element: <WordSoupGame />, group: "hex" },
     { uid: makeUID++, path: "/sandbox-chakra/keyboard", displayName: "Keyboard", element: <Keyboard />, group: "hex" },
     { uid: makeUID++, path: "/sandbox-chakra/generative", displayName: "Generative Map", element: <GenerativeBoard />, group: "hex" },
     { uid: makeUID++, path: "/sandbox-chakra/savedHexBoard", displayName: "Saved Board", element: <SavedBoard />, group: "hex" },
@@ -47,8 +47,8 @@ function App() {
     <BrowserRouter >
       <Routes>
         <Route path='/sandbox-chakra/' element={<Layout routesList={routes} />}>
-            <Route index element={<HomeComponent />} />
-            {routes.map((route) => <Route key={route.uid} path={route.path} element={route.element} />)}
+          <Route index element={<HomeComponent />} />
+          {routes.map((route) => <Route key={route.uid} path={route.path} element={route.element} />)}
         </Route>
       </Routes >
     </BrowserRouter>

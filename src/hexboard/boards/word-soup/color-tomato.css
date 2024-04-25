@@ -82,6 +82,12 @@ tspan {
 	fill: var(--tomato-med);
 	filter: blur(var(--blur-min));
 }
+.hex.clickable.selected {
+	fill: var(--tomato-light);
+	stroke-width: 5px;
+	stroke: white;
+	filter: blur(var(--blur-min));
+}
 .hexText {
 	fill: var(--pasta);
 	stroke: var(--pasta);

@@ -3,99 +3,87 @@ import { useState } from 'react';
 import '../../hex.css';
 import { hexagon } from '../../hexDefinitions';
 import WordSoupBoard from './board';
-// import './color-honey.css';
 import './color-tomato.css';
+import { shuffle } from './soup-functions';
+
+export type newHex = hexagon & { uid: number, value: number, clickFunction: (hexId: number) => void, active: boolean }
+
 export default function WordSoupGame() {
 
     // ---------------------------------------------
-    // <><> Create players
+    // <><> Gameplay state - this should be done with Redux
     // ---------------------------------------------
-    const players = [
-        { name: "Player 1", score: 0, words: [] },
-        { name: "Player 2", score: 0, words: [] }
-    ]
 
-    // ---------------------------------------------
+    // const placeholderText = "---";
+
+    // const [currentPlayerIndex] = useState(0);
+    // const [currentWord, setCurrentWord] = useState(placeholderText);
+    // const [currentWordScore, setCurrentWordScore] = useState(0);
+
+    // const wordHistory: string[] = []
+    // let currentTurn = 0
+
     // <><> Initalize the board
     // ---------------------------------------------
-
-    const usefulClasses = "hex clickable";
-    const blankRoster: hexagon[] = [
-        // There are 37 heagons in the board, numbered 0-36
-        { "q": 0, "r": 0, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -1, "r": 0, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -1, "r": 1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 0, "r": -1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 0, "r": 1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 1, "r": -1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 1, "r": 0, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -2, "r": 0, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -2, "r": 1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -2, "r": 2, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -1, "r": -1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -1, "r": 2, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 0, "r": -2, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 0, "r": 2, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 1, "r": -2, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 1, "r": 1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 2, "r": -2, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 2, "r": -1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 2, "r": 0, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -3, "r": 0, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -3, "r": 1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -3, "r": 2, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -3, "r": 3, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -2, "r": -1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -2, "r": 3, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -1, "r": -2, cssClasses: usefulClasses, hexText: "*" },
-        { "q": -1, "r": 3, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 0, "r": -3, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 0, "r": 3, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 1, "r": -3, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 1, "r": 2, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 2, "r": -3, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 2, "r": 1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 3, "r": -3, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 3, "r": -2, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 3, "r": -1, cssClasses: usefulClasses, hexText: "*" },
-        { "q": 3, "r": 0, cssClasses: usefulClasses, hexText: "*" }
-    ];
-
-    const myDice1 = `rstqwx`
-    const myDice2 = `eaozjy`
-    const dicePool = [
-        'aaafrs', 'aaeeee', 'aafirs', 'adennn', 'aeeeem', myDice1,
-        'aeegmu', 'aegmnn', 'afirsy', 'bjkqxz', 'ccenst', myDice2,
-        'aeegmu', 'aegmnn', 'afirsy', 'bjkqxz', 'ccenst', myDice2,
-        'ceiilt', 'ceilpt', 'ceipst', 'ddhnot', 'dhhlor', myDice1,
-        'dhlnor', 'dhlnor', 'eiiitt', 'emottt', 'ensssu', myDice2,
-        'fiprsy', 'gorrvw', 'iprrry', 'nootuw', 'ooottu', myDice1
-        , 'ceilpt', 'ceipst', 'ddhnot', 'dhhlor', myDice2, myDice1
-    ]
-
-    const rollDie = (input: string) => input[Math.floor(Math.random() * input.length)]
-    function populateHexes(hexRoster: hexagon[]): hexagon[] {
-        return hexRoster.map((hex: hexagon) => {
-            const newHex = { ...hex };
-            return { ...newHex, letter: rollDie(dicePool.pop() || "&") };
-        });
+    // Generate the Hex grid coordinates
+    const generateHexCoordinates = () => {
+        const usefulClasses = "hex clickable";
+        let idGen = 0;
+        const hexRoster: newHex[] = [];
+        for (let q = -3; q <= 3; q++) {
+            for (let r = -3; r <= 3; r++) {
+                if (Math.abs(q + r) <= 3) {
+                    const x = idGen++;
+                    const newHex = { uid: x, q: q, r: r, cssClasses: usefulClasses, hexText: "*", value: 2, clickFunction: () => { }, active: true };
+                    hexRoster.push(newHex);
+                }
+            }
+        }
+        return hexRoster;
     }
 
-    const initialRoster = populateHexes(blankRoster);
-    const [hexRoster, setHexRoster] = useState(initialRoster);
+    const hexRosterInitial = generateHexCoordinates();
 
-    // ---------------------------------------------
-    // <><> Render
-    // ---------------------------------------------
+    // shuffle the array
+    const letterBag: string[] = shuffle("aaaaaaaaabbbcccddddeeeeeeeeeeeeeeffffggghhiiiiiiiiijkllllllllmmnnnnnnnnoooooooooppqrrrrrrsssstttttttuuuuvvwwxyyz".split(''));
+    const [currentLetterSupply, setCurrentLetterSupply] = useState(letterBag)
+
+    const populatedHexes = hexRosterInitial.map((hex) => {
+        if (hex.hexText === "*") {
+            hex.hexText = currentLetterSupply.shift() || "*"
+        }
+        return hex
+    })
+
+    const [hexRoster, setHexRoster] = useState(populatedHexes);
+
     return (
-        <Box>
-            <WordSoupBoard hexRoster={hexRoster}>{
-                <Box id='Playerdisplay'>
-                    {players.map((player, index) => (
-                        <Box key={index}>{player.name} {player.score}</Box>
-                    ))}
-                </Box>
-            }</WordSoupBoard>
-        </Box>
+        <>
+            <Box id='DebugDisplay'>
+                {/* Current Word: {currentWord} / {currentWordScore} */}
+                {/* <Text>Current Letter Supply ({currentLetterSupply.length} letters): {currentLetterSupply}</Text> */}
+                {/* hexRoster: {hexRoster.map((hex, index) => (
+                    <Box key={index}>
+                        {hex.hexText} - {hex.value} - {hex.active ? 'active' : 'inactive'}
+                    </Box>
+                ))} */}
+            </Box>
+            <Box>
+                <WordSoupBoard hexRoster={hexRoster}>
+                    {/* <Box id='Playerdisplay'>
+                        {players.map((player, index) => {
+                            if (index === currentPlayerIndex) {
+                                return <Box key={index} className='tomato' textStyle={'underline'}>{player.name} {player.score}</Box>
+                            } else return (
+                                <Box key={index}>
+                                    <Box>{player.name} {player.score}</Box>
+                                    <Box>{player.words.map((word, index) => (<Box key={'word-' + index}>{word}</Box>))}</Box>
+                                </Box>
+                            )
+                        })}
+                    </Box> */}
+                </WordSoupBoard>
+            </Box>
+        </>
     );
 }

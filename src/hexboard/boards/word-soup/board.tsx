@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import Hexboard from "../../HexBoardSVG";
 import HexboardLayout from '../../HexboardLayout';
-import BoardParameters from '../../forms/BoardParameters';
-import CanvasParameters from '../../forms/CanvasParameters';
 import { canvasGlobals, gameGlobals, hexagon } from "../../hexDefinitions";
 import { clickMessage } from '../../hexFunctions';
 import { hexOrientations } from '../../hexMath';
@@ -35,16 +33,20 @@ export default function WordSoupBoard(props: { hexRoster: hexagon[], children?: 
 		canvasBackgroundColor: '#00c',
 	}
 
-	return <HexboardLayout id="wordSoupBoard" displayTitle="Word Soup" forms={[<BoardParameters
-		hexRadius={hexRadius}
-		separationMultiplier={separationMultiplier}
-		SEThexRadius={SEThexRadius}
-		SETseparationMultiplier={SETseparationMultiplier} hexgridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin} />,
-	<CanvasParameters
-		canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
-		canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
-		hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
-	/>]} board={<Hexboard
+	return <HexboardLayout id="wordSoupBoard" displayTitle="Word Soup" 
+	// forms={
+	// 	[<BoardParameters
+	// 		hexRadius={hexRadius}
+	// 		separationMultiplier={separationMultiplier}
+	// 		SEThexRadius={SEThexRadius}
+	// 		SETseparationMultiplier={SETseparationMultiplier} hexgridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin} />,
+	// 	<CanvasParameters
+	// 		canvasWidth={canvasWidth} SETcanvasWidth={SETcanvasWidth}
+	// 		canvasHeight={canvasHeight} SETcanvasHeight={SETcanvasHeight}
+	// 		hexGridOrigin={hexGridOrigin} SEThexGridOrigin={SEThexGridOrigin}
+	// 	/>]
+	// } 
+	board={<Hexboard
 		hexRoster={hexRoster}
 		gameGlobals={gameGlobals}
 		canvasGlobals={canvasGlobals} />} roster={<RosterDisplay hexRoster={hexRoster} />} >

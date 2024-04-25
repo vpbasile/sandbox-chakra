@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "ignores/themeNebula.ts"],
+  "include": ["src", "ignores/themeNebula.ts", "ignores/soup-functions copy.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
