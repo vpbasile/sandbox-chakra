@@ -69,7 +69,7 @@ export default function Hexboard(props: hexboardProps) {
 		if (point.y > rectBounds.y.max) { rectBounds.y.max = point.y }
 	}
 
-	console.log(`Rect bounds: ${JSON.stringify(rectBounds)}`)
+	// console.log(`Rect bounds: ${JSON.stringify(rectBounds)}`)
 	// Do the math for the bounding hex and box
 	const backboardPoints = backBoard(hexRoster, gameGlobals);
 

@@ -8,80 +8,54 @@ import { shuffle } from './soup-functions';
 
 export type newHex = hexagon & { uid: number, value: number, clickFunction: (hexId: number) => void, active: boolean }
 
-export default function WordSoupGame() {
-
-    // ---------------------------------------------
-    // <><> Gameplay state - this should be done with Redux
-    // ---------------------------------------------
-
-    // const placeholderText = "---";
-
-    // const [currentPlayerIndex] = useState(0);
-    // const [currentWord, setCurrentWord] = useState(placeholderText);
-    // const [currentWordScore, setCurrentWordScore] = useState(0);
-
-    // const wordHistory: string[] = []
-    // let currentTurn = 0
-
-    // <><> Initalize the board
-    // ---------------------------------------------
-    // Generate the Hex grid coordinates
-    const generateHexCoordinates = () => {
-        const usefulClasses = "hex clickable";
-        let idGen = 0;
-        const hexRoster: newHex[] = [];
-        for (let q = -3; q <= 3; q++) {
-            for (let r = -3; r <= 3; r++) {
-                if (Math.abs(q + r) <= 3) {
-                    const x = idGen++;
-                    const newHex = { uid: x, q: q, r: r, cssClasses: usefulClasses, hexText: "*", value: 2, clickFunction: () => { }, active: true };
-                    hexRoster.push(newHex);
-                }
+const generateHexCoordinates = () => {
+    const usefulClasses = "hex clickable";
+    let idGen = 0;
+    const hexRoster: newHex[] = [];
+    for (let q = -3; q <= 3; q++) {
+        for (let r = -3; r <= 3; r++) {
+            if (Math.abs(q + r) <= 3) {
+                const uid = idGen++;
+                const newHex = { uid: uid, q: q, r: r, cssClasses: usefulClasses, hexText: "*", value: 2, clickFunction: () => { }, active: true };
+                hexRoster.push(newHex);
             }
         }
-        return hexRoster;
     }
+    return hexRoster;
+}
 
-    const hexRosterInitial = generateHexCoordinates();
+export default function WordSoupGame() {
 
-    // shuffle the array
     const letterBag: string[] = shuffle("aaaaaaaaabbbcccddddeeeeeeeeeeeeeeffffggghhiiiiiiiiijkllllllllmmnnnnnnnnoooooooooppqrrrrrrsssstttttttuuuuvvwwxyyz".split(''));
-    const [currentLetterSupply, setCurrentLetterSupply] = useState(letterBag)
+    const [letterSupply, setLetterSupply] = useState(letterBag)
+    const initialHexRoster = generateHexCoordinates();
+    const [hexRoster, setHexRoster] = useState(initialHexRoster);
 
-    const populatedHexes = hexRosterInitial.map((hex) => {
-        if (hex.hexText === "*") {
-            hex.hexText = currentLetterSupply.shift() || "*"
-        }
-        return hex
-    })
-
-    const [hexRoster, setHexRoster] = useState(populatedHexes);
+    const populateHexes = () => {
+        console.log('Letter Supply', letterSupply)
+        const remaining: string[] = [...letterSupply];
+        const updatedHexRoster = hexRoster.map((hex) => {
+            console.log('Updating hex', hex.uid, hex.hexText)
+            if (hex.hexText === "*") {
+                // Draw a letter from the supply, removing it from the supply
+                const newLetter = remaining.shift() || "*";
+                console.log('Drew', newLetter);
+                console.log('remaining', remaining);
+                hex.hexText = newLetter;
+            }
+            return hex;
+        })
+        setLetterSupply(remaining); // Update the letter supply state
+        setHexRoster(updatedHexRoster);
+    };
 
     return (
         <>
             <Box id='DebugDisplay'>
-                {/* Current Word: {currentWord} / {currentWordScore} */}
-                {/* <Text>Current Letter Supply ({currentLetterSupply.length} letters): {currentLetterSupply}</Text> */}
-                {/* hexRoster: {hexRoster.map((hex, index) => (
-                    <Box key={index}>
-                        {hex.hexText} - {hex.value} - {hex.active ? 'active' : 'inactive'}
-                    </Box>
-                ))} */}
+                <button onClick={() => populateHexes()}>Populate</button>
             </Box>
             <Box>
                 <WordSoupBoard hexRoster={hexRoster}>
-                    {/* <Box id='Playerdisplay'>
-                        {players.map((player, index) => {
-                            if (index === currentPlayerIndex) {
-                                return <Box key={index} className='tomato' textStyle={'underline'}>{player.name} {player.score}</Box>
-                            } else return (
-                                <Box key={index}>
-                                    <Box>{player.name} {player.score}</Box>
-                                    <Box>{player.words.map((word, index) => (<Box key={'word-' + index}>{word}</Box>))}</Box>
-                                </Box>
-                            )
-                        })}
-                    </Box> */}
                 </WordSoupBoard>
             </Box>
         </>
