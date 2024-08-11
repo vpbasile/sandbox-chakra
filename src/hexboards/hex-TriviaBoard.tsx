@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Hexboard from '../HexBoardSVG';
-import HexboardLayout from '../HexboardLayout';
-import BoardParameters from '../forms/BoardParameters';
-import CanvasParameters from '../forms/CanvasParameters';
-import { gameGlobals, hexagon } from '../hexDefinitions';
-import { blackHexes, clickMessage, colorHexes } from '../hexFunctions';
-import { cube_ring, hexOrientations } from '../hexMath';
-import RosterDisplay from '../hexRosterDisplay';
-import aspectRatio from '../rectMath';
+import Hexboard from '../hexboard/HexBoardSVG';
+import HexboardLayout from '../hexboard/HexboardLayout';
+import BoardParameters from '../hexboard/forms/BoardParameters';
+import CanvasParameters from '../hexboard/forms/CanvasParameters';
+import { hexagon } from '../hexboard/hexDefinitions';
+import { blackHexes, clickMessage, colorHexes } from '../hexboard/hexFunctions';
+import { cube_ring, hexOrientations } from '../hexboard/hexMath';
+import RosterDisplay from '../hexboard/hexRosterDisplay';
+import aspectRatio from '../hexboard/rectMath';
 
 export default function TriviaBoard() {
   // Constants, States, and Functions unique to this board
@@ -51,7 +51,7 @@ export default function TriviaBoard() {
   hexRoster = hexRoster.concat(ring4);
 
   // <><><> The game globals needed for rendering
-  const gameGlobals: gameGlobals = {
+  const gameGlobals: gameglobalsType = {
     // Hexagons
     orientation: hexOrientations['flat-top'],
     hexRadius: hexRadius,

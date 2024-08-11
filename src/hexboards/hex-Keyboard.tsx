@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Hexboard from "../HexBoardSVG";
-import HexboardLayout from '../HexboardLayout';
-import BoardParameters from '../forms/BoardParameters';
-import CanvasParameters from '../forms/CanvasParameters';
-import { gameGlobals, hexagon } from '../hexDefinitions';
-import { clickMessage } from '../hexFunctions';
-import { hexOrientations } from '../hexMath';
-import RosterDisplay from "../hexRosterDisplay";
-import aspectRatio from '../rectMath';
+import Hexboard from "../hexboard/HexBoardSVG";
+import HexboardLayout from '../hexboard/HexboardLayout';
+import BoardParameters from '../hexboard/forms/BoardParameters';
+import CanvasParameters from '../hexboard/forms/CanvasParameters';
+import { hexagon } from '../hexboard/hexDefinitions';
+import { clickMessage } from '../hexboard/hexFunctions';
+import { hexOrientations } from '../hexboard/hexMath';
+import RosterDisplay from "../hexboard/hexRosterDisplay";
+import aspectRatio from '../hexboard/rectMath';
 
 
 export default function Keyboard() {
@@ -49,7 +49,7 @@ export default function Keyboard() {
 	})
 
 	// <> Hexboard Parameters
-	const gameGlobals: gameGlobals = {
+	const gameGlobals: gameglobalsType = {
 		orientation: orientation,
 		hexRadius: hexRadius,
 		textSize: hexRadius / 2,

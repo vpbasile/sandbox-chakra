@@ -1,18 +1,18 @@
 import { useState } from "react";
-import Hexboard from "../HexBoardSVG";
+import Hexboard from "../hexboard/HexBoardSVG";
 
-import { gameGlobals, hexagon, vector } from "../hexDefinitions";
-import { alreadyThere, clickMessage, randomMove } from "../hexFunctions";
+import { gameGlobalsType, hexagon, vector } from "../hexboard/hexDefinitions";
+import { alreadyThere, clickMessage, randomMove } from "../hexboard/hexFunctions";
 
 import { Container, InputGroup, InputLeftAddon, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper } from "@chakra-ui/react";
-import HexboardLayout from "../HexboardLayout";
-import BoardParameters from "../forms/BoardParameters";
-import CanvasParameters from "../forms/CanvasParameters";
-import SaveRosterButton from "../forms/saveRoster";
-import { formAttributes } from "../forms/style";
-import { calcCenteredRectangle, hexOrientations } from "../hexMath";
-import RosterDisplay from "../hexRosterDisplay";
-import aspectRatio from "../rectMath";
+import HexboardLayout from "../hexboard/HexboardLayout";
+import BoardParameters from "../hexboard/forms/BoardParameters";
+import CanvasParameters from "../hexboard/forms/CanvasParameters";
+import SaveRosterButton from "../hexboard/forms/saveRoster";
+import { formAttributes } from "../hexboard/forms/style";
+import { calcCenteredRectangle, hexOrientations } from "../hexboard/hexMath";
+import RosterDisplay from "../hexboard/hexRosterDisplay";
+import aspectRatio from "../hexboard/rectMath";
 
 export default function GenerativeBoard() {
 	// <> States that control canvas parameters
@@ -77,7 +77,7 @@ export default function GenerativeBoard() {
 			</InputGroup>
 		</Container>
 
-	const gameGlobals: gameGlobals = {
+	const gameGlobals: gameGlobalsType = {
 		orientation: defaultOrientation,
 		hexRadius: hexRadius,
 		separationMultiplier: separationMultiplier,

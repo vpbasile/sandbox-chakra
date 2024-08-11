@@ -1,16 +1,16 @@
 
 import { Box, Button, Container, Input } from "@chakra-ui/react";
 import { useState } from "react";
-import Hexboard from "../HexBoardSVG";
-import HexboardLayout from "../HexboardLayout";
-import BoardParameters from "../forms/BoardParameters";
-import CanvasParameters from "../forms/CanvasParameters";
-import SaveRosterButton from "../forms/saveRoster";
-import { formAttributes } from "../forms/style";
-import { gameGlobals, hexagon } from "../hexDefinitions";
-import { clickMessage } from "../hexFunctions";
-import { cube_ring, hexOrientations } from "../hexMath";
-import RosterDisplay from "../hexRosterDisplay";
+import Hexboard from "../hexboard/HexBoardSVG";
+import HexboardLayout from "../hexboard/HexboardLayout";
+import BoardParameters from "../hexboard/forms/BoardParameters";
+import CanvasParameters from "../hexboard/forms/CanvasParameters";
+import SaveRosterButton from "../hexboard/forms/saveRoster";
+import { formAttributes } from "../hexboard/forms/style";
+import { gameGlobalsType, hexProps } from "../hexboard/hexDefinitions";
+import { clickMessage } from "../hexboard/hexFunctions";
+import { cube_ring, hexOrientations } from "../hexboard/hexMath";
+import RosterDisplay from "../hexboard/hexRosterDisplay";
 
 export default function CreateBoard() {
 	// <> States that control canvas parameters
@@ -36,8 +36,8 @@ export default function CreateBoard() {
 	]
 	const [classTemp] = useState(cssClassChoices[0])
 	// const blankRoster: hexagon[] = []
-	const centerHex: hexagon = { q: 0, r: 0, cssClasses: cssClassChoices[0] }
-	let tempRoster: hexagon[] = [centerHex]
+	const centerHex: hexProps = { q: 0, r: 0, cssClasses: cssClassChoices[0], uid: 0, clickMessage: "Center Hex" }
+	let tempRoster: hexProps[] = [centerHex]
 	const boardSize: number = 7
 	for (let i = 1; i < boardSize; i++) {
 		const thisRing = cube_ring(centerHex, i)
@@ -46,11 +46,11 @@ export default function CreateBoard() {
 		// console.log(JSON.stringify(tempRoster))
 	}
 	tempRoster = tempRoster.map((eachHex) => { eachHex.cssClasses = cssClassChoices[0] + " hover-space"; return eachHex; })
-	const [hexRoster, SEThexRoster] = useState<hexagon[]>(tempRoster)
+	const [hexRoster, SEThexRoster] = useState<hexProps[]>(tempRoster)
 
 	function addHex() {
 		const tempRoster = Array.from(hexRoster)
-		tempRoster.push({ q: qTemp, r: rTemp, cssClasses: classTemp })
+		tempRoster.push({ q: qTemp, r: rTemp, cssClasses: classTemp, uid: hexRoster.length, clickMessage: `Hex ${hexRoster.length}` })
 		SEThexRoster(tempRoster);
 	}
 
@@ -75,7 +75,7 @@ export default function CreateBoard() {
 		</Box>
 	</Container>
 
-	const gameGlobals: gameGlobals = {
+	const gameGlobals: gameGlobalsType = {
 		orientation: defaultOrientation,
 		hexRadius: hexRadius,
 		separationMultiplier: separationMultiplier,

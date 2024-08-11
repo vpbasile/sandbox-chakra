@@ -1,18 +1,5 @@
-import { gameGlobals } from './hexDefinitions';
+import { hexProps } from './hexDefinitions';
 import { calcTheta, hex_to_pixel } from './hexMath';
-
-// function degtoRad(degrees) { return degrees * Math.PI / 180 }
-
-export interface hexProps {
-	gameGlobals: gameGlobals;
-	id: number;
-	q: number;
-	r: number;
-	cssClasses?: string;
-	hexText?: string;
-	clickMessage: string;
-	expandBounds: (point: { x: number, y: number }) => void;
-}
 
 export default function Hexagon(props: hexProps) {
 	const gameGlobals = props.gameGlobals
@@ -36,8 +23,6 @@ export default function Hexagon(props: hexProps) {
 		const theta = calcTheta(angle)
 		const x = Math.floor(center.x + hexRadius * Math.cos(theta))
 		const y = Math.floor(center.y + hexRadius * Math.sin(theta))
-		// Handles calculating the bounding box
-		props.expandBounds({ x, y })
 		// console.log(`corner: ${angle} ${x},${y}`)
 		// if this is not the first corner, then we need to add a space
 		if (polygonString !== "") { polygonString += " " }
@@ -70,7 +55,7 @@ export default function Hexagon(props: hexProps) {
 			<polygon
 				style={{}}
 				className={`hex ${cssClasses}`}
-				id={`${props.id}`}
+				id={`${props.uid}`}
 				points={polygonString}
 			/>
 			{textForHex}

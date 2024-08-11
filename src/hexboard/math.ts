@@ -18,19 +18,19 @@ export default function aspectRatio(): number { return window.innerWidth / windo
 	* @param thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
 	*/
 
-export function rollover(value:number, limit:number) {
+export function rollover(value: number, limit: number) {
 	let tempValue = value;
 	while (tempValue < 0) {
 		// console.log(`value was ${tempValue}`)
 		tempValue += limit
 		tempValue += 1;
 		// console.log(`now it is ${tempValue}`)
-	};
+	}
 	while (tempValue > limit) {
 		// console.log(`value was ${tempValue}`)
 		tempValue -= limit
 		tempValue -= 1
 		// console.log(`now it is ${tempValue}`)
-	};
+	}
 	return (tempValue);
 }

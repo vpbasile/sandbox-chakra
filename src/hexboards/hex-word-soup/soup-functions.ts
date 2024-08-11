@@ -1,3 +1,4 @@
+import { hexProps } from "../../hexboard/hexDefinitions";
 
 // Gameplay global variables
 export const initPlayers = [
@@ -9,6 +10,30 @@ export const letterScores = {
 }
 
 // export function placeholderText() { return `It is ${players[currentPlayer].color}'s turn. Touch a letter to begin.` }
+
+export const generateHexCoordinates = () => {
+	const usefulClasses = "hex clickable";
+	let idGen = 0;
+	const hexRoster: hexProps[] = [];
+	for (let q = -3; q <= 3; q++) {
+		for (let r = -3; r <= 3; r++) {
+			if (Math.abs(q + r) <= 3) {
+				const uid = idGen++;
+				const newHex: hexProps = {
+					uid: uid, q: q, r: r, cssClasses: usefulClasses, hexText: "*",
+					// Each hex needs a unique clickMessage
+					clickMessage: `clicked ${uid}`,
+					// fixme: Need to find a way to pass game-specific values and functions to the hexes
+					// value: 2, 
+					// clickFunction: (hexId: number) => { console.log('clicked', hexId) },
+					// active: true
+				};
+				hexRoster.push(newHex);
+			}
+		}
+	}
+	return hexRoster;
+}
 
 export function shuffle(array: string[]): string[] {
 	for (let i = array.length - 1; i > 0; i--) {
@@ -39,10 +64,10 @@ export function shuffle(array: string[]): string[] {
 // }
 
 // async function submitButtonClicked() {
-// 	if (currentword.length > 0) { 
+// 	if (currentword.length > 0) {
 // 		spoon.attr('stroke', 'cornflowerblue').attr('class', `black`)
 // 		spoonBack.attr('fill', 'cornflowerblue').attr('class', `black`)
-// 		await dictionaryCheck(currentword) 
+// 		await dictionaryCheck(currentword)
 // 	}
 // }
 

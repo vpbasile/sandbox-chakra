@@ -1,6 +1,6 @@
 import { Box, Button, Center, Heading, Image, Spacer, Text } from "@chakra-ui/react";
 import { routeType } from "../AppTypes";
-import ColorModeButton from "../helpers/colorModeButton";
+import ColorModeButton from "../z-helpers/colorModeButton";
 import NavMenu from "./navMenu";
 
 

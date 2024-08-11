@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import Hexboard from "../../HexBoardSVG";
-import HexboardLayout from '../../HexboardLayout';
-import BoardParameters from '../../forms/BoardParameters';
-import CanvasParameters from '../../forms/CanvasParameters';
-import { canvasGlobals, gameGlobals } from "../../hexDefinitions";
-import { clickMessage } from '../../hexFunctions';
-import { hexOrientations } from '../../hexMath';
-import RosterDisplay from '../../hexRosterDisplay';
+import Hexboard from "../../hexboard/HexBoardSVG";
+import HexboardLayout from '../../hexboard/HexboardLayout';
+import BoardParameters from '../../hexboard/forms/BoardParameters';
+import CanvasParameters from '../../hexboard/forms/CanvasParameters';
+import { clickMessage } from '../../hexboard/hexFunctions';
+import { hexOrientations } from '../../hexboard/hexMath';
+import RosterDisplay from '../../hexboard/hexRosterDisplay';
 import fileData from './data.json';
 
 export default function SavedBoard() {
@@ -26,7 +25,7 @@ export default function SavedBoard() {
 	const hexRoster = fileData.hexRoster;
 	// const canvasGlobals = fileData.canvasGlobals;
 
-	const gameGlobals: gameGlobals = {
+	const gameGlobals: gameglobalsType = {
 		// Hexagons
 		orientation: orientation,
 		hexRadius: hexRadius,
@@ -36,7 +35,7 @@ export default function SavedBoard() {
 		onClick: clickMessage
 	}
 
-	const canvasGlobals: canvasGlobals = {
+	const canvasGlobals: canvasGlobalsType = {
 		canvasWidth: canvasWidth,
 		canvasHeight: canvasHeight,
 		hexGridOrigin: hexGridOrigin,

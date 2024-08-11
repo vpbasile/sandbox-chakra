@@ -1,5 +1,5 @@
 import Hexagon from './Hexagon';
-import { canvasGlobals, coordinateXY, gameGlobals, hexagon } from "./hexDefinitions";
+import { canvasGlobalsType, coordinateXY, gameGlobalsType, hexProps } from "./hexDefinitions";
 import { clickMessage } from './hexFunctions';
 import { directionVectors, hex_to_pixel } from './hexMath';
 
@@ -7,9 +7,9 @@ import { directionVectors, hex_to_pixel } from './hexMath';
 import './hex.css';
 
 export interface hexboardProps {
-	gameGlobals: gameGlobals;
-	canvasGlobals: canvasGlobals;
-	hexRoster: hexagon[];
+	gameGlobals: gameGlobalsType;
+	canvasGlobals: canvasGlobalsType;
+	hexRoster: hexProps[];
 	textSize?: number;
 	cssClasses?: string;
 }
@@ -30,7 +30,7 @@ export default function Hexboard(props: hexboardProps) {
 
 	// <> Render Functions
 	// Side effect: sets range = { xMin: 0, xMax: 0, yMin: 0, yMax: 0 }
-	function backBoard(hexRoster: hexagon[], gameGlobals: gameGlobals): string {
+	function backBoard(hexRoster: hexProps[], gameGlobals: gameGlobalsType): string {
 		// <> Find the min and max values for q and r.  Convert those to rectangular coordinates.  
 		let maxRadius = 0
 		hexRoster.forEach(hex => {
@@ -62,7 +62,7 @@ export default function Hexboard(props: hexboardProps) {
 	// <> Do some last minute things to the roster, like assigning unique ids if they are missing
 	let hexKey = 0;
 	const rectBounds = { x: { min: 0, max: 0 }, y: { min: 0, max: 0 } }
-	const expandBounds = (point:{x:number, y:number}) => {
+	const expandBounds = (point: { x: number, y: number }) => {
 		if (point.x < rectBounds.x.min) { rectBounds.x.min = point.x }
 		if (point.x > rectBounds.x.max) { rectBounds.x.max = point.x }
 		if (point.y < rectBounds.y.min) { rectBounds.y.min = point.y }
@@ -88,7 +88,7 @@ export default function Hexboard(props: hexboardProps) {
 				points={backboardPoints}
 			/>}
 			{/* All of the hexes */}
-			{hexRoster.map((hex: hexagon) => {
+			{hexRoster.map((hex: hexProps) => {
 				const thisHexKey = hexKey++;
 				return <Hexagon
 					gameGlobals={gameGlobals}

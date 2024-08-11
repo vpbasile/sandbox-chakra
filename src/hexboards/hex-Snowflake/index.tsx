@@ -1,6 +1,6 @@
 
 // <> Import components
-import { gameGlobals, hexClickFunction, hexagon } from '../../hexDefinitions';
+import { hexClickFunction, hexagon } from '../../hexDefinitions';
 import { centerHexagon, reflectAcrossAxis } from '../../hexFunctions';
 import { hexOrientations } from '../../hexMath';
 import { randomBounded } from '../../math';
@@ -46,7 +46,7 @@ export default function Snowflake() {
 	mergeRoster(fullSnowflake)
 	fullSnowflake.forEach((hexagon) => { mergeRoster([reflectAcrossAxis(hexagon, "q", "bg-ice")]) })
 
-	const gameGlobals: gameGlobals = {
+	const gameGlobals: gameglobalsType = {
 		orientation: hexOrientations['flat-top'],
 		hexRadius: 8,
 		separationMultiplier: 1.02,

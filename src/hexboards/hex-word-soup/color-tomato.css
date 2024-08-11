@@ -18,32 +18,16 @@
 	/* Player 1 Colors */
 	--player-1-light: hsl(200, 67%, 59%);
 	--player-1-dark: hsl(200, 100%, 16%);
-	
 
 }
 
-body {
-	background: cornflowerblue;
-	color: whitesmoke;
-}
+/* Generic Styles */
 
-.lastclick {
-	/* stroke: var(--tomato-light); */
-	stroke-width: 5;
-}
+/* tspan {
+	fill: var(--pasta);
+  } */
 
-.locked {
-	fill: var(--tomato-dark);
-	filter: opacity(0.3) blur(var(--blur-max));
-}
-
-
-.hex.hex.clickable:hover {
-	/* fill: black; */
-	filter: brightness(90%) saturate(50%) opacity(1.0);
-}
-
-button {
+  button {
 	background-color: black;
 	color: var(--pasta);
 }
@@ -65,11 +49,6 @@ button {
 /* #spoon {
 	stroke: black;
 } */
-   
-
-tspan {
-	fill: var(--pasta);
-  }
 
   #currentWordDisplay {
 	color: var(--primary);
@@ -77,6 +56,8 @@ tspan {
   }
 
 /* #gameBoard {} */
+
+/* Hex styles */
 
 .hex.clickable {
 	fill: var(--tomato-med);
@@ -138,6 +119,26 @@ tspan {
 	background-color: var(--pasta);
 	color: var(--pasta);
 	border-color: var(--pasta);
+}
+
+
+
+
+
+.lastclick {
+	/* stroke: var(--tomato-light); */
+	stroke-width: 5;
+}
+
+.locked {
+	fill: var(--tomato-dark);
+	filter: opacity(0.3) blur(var(--blur-max));
+}
+
+
+.hex.hex.clickable:hover {
+	/* fill: black; */
+	filter: brightness(90%) saturate(50%) opacity(1.0);
 }
 
 #crackers {

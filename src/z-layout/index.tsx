@@ -17,7 +17,7 @@ export default function Layout(props: { routesList: routeType[] }) {
     return (<Box id='layoutWrapper'>
         {showLabels && <SandboxHeader routesList={routesList} hideLabels={hideLables} />}
         <Box id='mainBody' p={9}>
-            <ErrorBoundary fallback={<Box>Something went wrong</Box>}>
+            <ErrorBoundary fallback={<Box>Something went wrong in the Sandbox layout outlet</Box>}>
                 {/* This is where the children will be rendered */}
                 <Outlet />
             </ErrorBoundary>
