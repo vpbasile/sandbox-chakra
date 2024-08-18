@@ -48,8 +48,8 @@ export default function HexWordSoup() {
             if (hex.hexText === "*") {
                 // Draw a letter from the supply, removing it from the supply
                 const newLetter = remaining.shift() || "*";
-                console.log('Drew', newLetter);
-                console.log('remaining', remaining);
+                // console.log('Drew', newLetter);
+                // console.log('remaining', remaining);
                 hex.hexText = newLetter;
             }
             return hex;
