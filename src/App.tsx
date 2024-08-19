@@ -17,7 +17,6 @@ import HexWordSoup from './hexboards/hex-word-soup';
 import HomeComponent from './sandboxHome';
 import UniformShowcase from './starfleet/UniformShowcase';
 import TemperatureChart from './temperature/TemperatureChart';
-import ProjectTrack from './ticketTrack/ProjectTrack';
 import Layout from './z-layout';
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
     // <>  Not DB
     { uid: makeUID++, path: "/sandbox-chakra/", element: <HomeComponent />, displayName: "Home", font: "mono", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/eligibility/", element: <Reboot />, displayName: "Eligibility", group: "misc" },
-    { uid: makeUID++, path: "/sandbox-chakra/project/", element: <ProjectTrack />, displayName: "Project Track", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/temperature/", element: <TemperatureChart />, displayName: "Temperature", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/starfleet", element: <UniformShowcase />, displayName: "Uniform Showcase", font: "mono", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/cutshadow", element: <Tesselation />, displayName: "Cut Shadow", font: "mono", group: "example" },
