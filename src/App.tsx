@@ -11,6 +11,7 @@ import CreateBoard from './hexboards/hex-CreateBoard';
 import GenerativeBoard from './hexboards/hex-Generative';
 import Keyboard from './hexboards/hex-Keyboard';
 import SavedBoard from './hexboards/hex-SavedBoard';
+import SVGDraw from './module-svgDraw';
 // import Snowflake from './hexboards/hex-Snowflake';
 import TriviaBoard from './hexboards/hex-TriviaBoard';
 import HexWordSoup from './hexboards/hex-word-soup';
@@ -24,14 +25,15 @@ function App() {
   const routes: routeType[] = [
     // <>  Not DB
     { uid: makeUID++, path: "/sandbox-chakra/", element: <HomeComponent />, displayName: "Home", font: "mono", group: "misc" },
-    { uid: makeUID++, path: "/sandbox-chakra/eligibility/", element: <Reboot />, displayName: "Eligibility", group: "misc" },
-    { uid: makeUID++, path: "/sandbox-chakra/temperature/", element: <TemperatureChart />, displayName: "Temperature", group: "misc" },
+    { uid: makeUID++, path: "/sandbox-chakra/svgDraw", element: <SVGDraw />, displayName: "SVGDraw", font: "mono", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/starfleet", element: <UniformShowcase />, displayName: "Uniform Showcase", font: "mono", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/cutshadow", element: <Tesselation />, displayName: "Cut Shadow", font: "mono", group: "example" },
     { uid: makeUID++, path: "/sandbox-chakra/slide", element: <SlideExample />, displayName: "Slide Example", font: "mono", group: "example" },
     { uid: makeUID++, path: "/sandbox-chakra/deepspace", element: <NebulaExample />, displayName: "Deep Space Theme", font: "okuda", group: "example" },
     { uid: makeUID++, path: "/sandbox-chakra/menuExample", displayName: "Menu Example", element: <MenuExample />, group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/responsive", displayName: "Responsive", element: <ResponsiveExample />, group: "example" },
+    { uid: makeUID++, path: "/sandbox-chakra/temperature/", element: <TemperatureChart />, displayName: "Temperature", group: "misc" },
+    { uid: makeUID++, path: "/sandbox-chakra/eligibility/", element: <Reboot />, displayName: "Eligibility", group: "misc" },
     // <> Hexboard components
     { uid: makeUID++, path: "/sandbox-chakra/trivia", displayName: "Trivia board", element: <TriviaBoard />, group: "hex" },
     { uid: makeUID++, path: "/sandbox-chakra/hex-soup", displayName: "Hex Soup", element: <HexWordSoup />, group: "hex" },
