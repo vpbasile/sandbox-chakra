@@ -7,6 +7,7 @@ import NebulaExample from './examples/nebulaExample';
 import ResponsiveExample from './examples/responsive';
 import SlideExample from './examples/slide';
 import Tesselation from './examples/tesselationBG';
+import Playlists from './Playlists';
 import HomeComponent from './sandboxHome';
 import UniformShowcase from './starfleet/UniformShowcase';
 import TemperatureChart from './temperature/TemperatureChart';
@@ -17,6 +18,7 @@ function App() {
   const routes: routeType[] = [
     // <>  Not DB
     { uid: makeUID++, path: "/sandbox-chakra/", element: <HomeComponent />, displayName: "Home", font: "mono", group: "misc" },
+    { uid: makeUID++, path: "/sandbox-chakra/playlists", element: <Playlists />, displayName: "Playlists", font: "mono", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/starfleet", element: <UniformShowcase />, displayName: "Uniform Showcase", font: "mono", group: "misc" },
     { uid: makeUID++, path: "/sandbox-chakra/cutshadow", element: <Tesselation />, displayName: "Cut Shadow", font: "mono", group: "example" },
     { uid: makeUID++, path: "/sandbox-chakra/slide", element: <SlideExample />, displayName: "Slide Example", font: "mono", group: "example" },
