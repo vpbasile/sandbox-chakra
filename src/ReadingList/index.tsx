@@ -6,7 +6,7 @@ import { TBookshelf } from './types';
 import { toggleReadStatus } from './utils';
 
 function CollapsibleShelf({ shelf }: { shelf: TBookshelf }) {
-    const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: true });
+    const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: false });
     const shelfBooks = shelf.bookIds.map((id) => books[id as keyof typeof books]).filter(Boolean);
 
     return (
