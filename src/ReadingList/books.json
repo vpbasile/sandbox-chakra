@@ -17,14 +17,14 @@
     "id": "book_0003",
     "title": "Rosewater",
     "author": "Tade Thompson",
-    "genreIds": ["sf", "africanfuturism", "afrofuturism"],
+    "genreIds": ["sf", "africanfuturism-afrofuturism"],
     "readByMe": false
   },
   "book_0004": {
     "id": "book_0004",
     "title": "The Traitor Baru Cormorant",
     "author": "Seth Dickinson",
-    "genreIds": ["fantasy", "resistance", "colonial"],
+    "genreIds": ["fantasy", "resistance"],
     "readByMe": false
   },
   "book_0005": {
@@ -38,7 +38,7 @@
     "id": "book_0006",
     "title": "The Poppy War",
     "author": "R.F. Kuang",
-    "genreIds": ["fantasy", "grimdark", "colonial", "military"],
+    "genreIds": ["fantasy", "grimdark", "resistance", "military"],
     "readByMe": false
   },
   "book_0007": {
@@ -59,7 +59,7 @@
     "id": "book_0009",
     "title": "Black Leopard, Red Wolf",
     "author": "Marlon James",
-    "genreIds": ["fantasy", "grimdark", "africanfuturism", "afrofuturism"],
+    "genreIds": ["fantasy", "grimdark", "africanfuturism-afrofuturism"],
     "readByMe": false
   },
   "book_0010": {
@@ -130,6 +130,7 @@
     "title": "Guards! Guards!",
     "author": "Terry Pratchett",
     "genreIds": ["fantasy", "speculative"],
+    "series": "Discworld",
     "readByMe": false
   },
   "book_0020": {
@@ -137,6 +138,23 @@
     "title": "Mort",
     "author": "Terry Pratchett",
     "genreIds": ["fantasy", "speculative"],
+    "series": "Discworld",
     "readByMe": false
+  },
+   "book_0021": {
+    "id": "book_0021",
+    "title": "Babel",
+    "author": "R.F. Kuang",
+    "genreIds": ["literary", "resistance", "historical-fiction"],
+    "series": null,
+    "readByMe": true
+  },
+  "book_0022": {
+    "id": "book_0022",
+    "title": "Project Hail Mary",
+    "author": "Andy Weir",
+    "genreIds": ["sf", "speculative"],
+    "series": null,
+    "readByMe": true
   }
 }

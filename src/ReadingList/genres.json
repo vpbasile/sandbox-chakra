@@ -30,22 +30,10 @@
     "description": "Collections of standalone short fiction pieces."
   },
   {
-    "id": "lgbtq",
-    "name": "LGBTQ+ Themes",
-    "category": "theme",
-    "description": "Books with queer characters, themes, or authors."
-  },
-  {
     "id": "resistance",
     "name": "Resistance / Anti-Imperial",
     "category": "theme",
     "description": "Stories focused on rebellion, colonialism, or resistance to empire."
-  },
-  {
-    "id": "colonial",
-    "name": "Colonialism",
-    "category": "theme",
-    "description": "Exploration of colonization and its consequences."
   },
   {
     "id": "dark-academia",
@@ -54,16 +42,10 @@
     "description": "Elite schools, occult knowledge, and academic obsession."
   },
   {
-    "id": "afrofuturism",
-    "name": "Afrofuturism",
+    "id": "africanfuturism-afrofuturism",
+    "name": "Africanfuturism and Afrofuturism",
     "category": "cultural",
-    "description": "Speculative fiction rooted in African diaspora experiences."
-  },
-  {
-    "id": "africanfuturism",
-    "name": "Africanfuturism",
-    "category": "cultural",
-    "description": "Speculative fiction centered on Africa and African perspectives."
+    "description": "Speculative fiction rooted in African and African diaspora experiences, centered on Africa and African perspectives."
   },
   {
     "id": "military",

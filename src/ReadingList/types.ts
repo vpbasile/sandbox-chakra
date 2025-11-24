@@ -3,7 +3,8 @@ export type TBook = {
     title: string;
     author: string;
     genreIds: string[];   // references TGenre.id, e.g. ["sf", "weird"]
-    readByMe?: boolean;
+    series?: string | null;
+    readByMe?: boolean; // true if already read
 };
 
 export type TBookshelf = {
