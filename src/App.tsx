@@ -8,7 +8,7 @@ import ResponsiveExample from './examples/responsive';
 import SlideExample from './examples/slide';
 import Tesselation from './examples/tesselationBG';
 import Playlists from './Playlists';
-import ReadingListDisplay from './ReadingList';
+import ReadingListDisplay from './ReadingList/index';
 import HomeComponent from './sandboxHome';
 import UniformShowcase from './starfleet/UniformShowcase';
 import TemperatureChart from './temperature/TemperatureChart';
