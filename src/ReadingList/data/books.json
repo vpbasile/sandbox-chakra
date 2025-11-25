@@ -145,7 +145,7 @@
     "id": "book_0021",
     "title": "Babel",
     "author": "R.F. Kuang",
-    "genreIds": ["literary", "resistance", "historical-fiction"],
+    "genreIds": ["resistance", "historical-fiction"],
     "series": null,
     "readByMe": true
   },

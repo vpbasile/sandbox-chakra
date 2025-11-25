@@ -58,5 +58,15 @@
     "name": "Grimdark",
     "category": "theme",
     "description": "Violent, morally ambiguous, and darkly realistic fantasy."
+  },
+  {
+    "id": "political",
+    "name": "Political",
+    "description": ""
+  },
+  {
+    "id": "historical-fiction",
+    "name": "Historical Fiction",
+    "description": ""
   }
 ]
